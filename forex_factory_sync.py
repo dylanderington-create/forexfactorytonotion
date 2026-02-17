@@ -1,9 +1,9 @@
 import os
 import requests
-import json
 from datetime import datetime, timedelta
 
 NOTION_TOKEN = os.environ["NOTION_TOKEN"]
+FMP_API_KEY  = os.environ["FMP_API_KEY"]
 DATABASE_ID  = "30abc939-7ab2-80bb-b951-fd1f33054d04"
 
 HEADERS_NOTION = {
@@ -20,48 +20,35 @@ def get_week_range():
 
 def fetch_events():
     monday, sunday = get_week_range()
-
-    url = "https://api.investing.com/api/financialdata/economic_calendar"
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Accept": "application/json",
-        "domain-id": "www",
-        "Origin": "https://www.investing.com",
-        "Referer": "https://www.investing.com/economic-calendar/",
-    }
+    url = "https://financialmodelingprep.com/api/v3/economic_calendar"
     params = {
-        "country[]": "5",  # USA
-        "importance[]": "3",  # High only
-        "dateFrom": monday.isoformat(),
-        "dateTo": sunday.isoformat(),
-        "timeZone": "55",
-        "timeFilter": "timeRemain",
-        "currentTab": "custom",
-        "submitFilters": "1",
-        "limit_from": "0",
+        "from":    monday.isoformat(),
+        "to":      sunday.isoformat(),
+        "apikey":  FMP_API_KEY,
     }
-
-    resp = requests.get(url, headers=headers, params=params, timeout=15)
+    resp = requests.get(url, params=params, timeout=15)
     resp.raise_for_status()
     data = resp.json()
 
     events = []
-    for ev in data.get("data", []):
-        name     = ev.get("name", "").strip()
-        date_str = ev.get("date", "")[:10]
-        time_str = ev.get("date", "")[11:16] + " UTC" if len(ev.get("date","")) > 10 else ""
-        forecast = str(ev.get("forecast", "") or "")
-        previous = str(ev.get("previous", "") or "")
+    for ev in data:
+        if ev.get("country", "").upper() != "US":
+            continue
+        if ev.get("impact", "").lower() != "high":
+            continue
 
-        if name and date_str:
-            events.append({
-                "name":     name,
-                "date":     date_str,
-                "time":     time_str,
-                "currency": "USD",
-                "forecast": forecast,
-                "previous": previous,
-            })
+        date_raw = ev.get("date", "")
+        date_str = date_raw[:10]
+        time_str = date_raw[11:16] + " UTC" if len(date_raw) > 10 else ""
+
+        events.append({
+            "name":     ev.get("event", "").strip(),
+            "date":     date_str,
+            "time":     time_str,
+            "currency": "USD",
+            "forecast": str(ev.get("estimate", "") or ""),
+            "previous": str(ev.get("previous", "") or ""),
+        })
 
     return events
 
@@ -103,7 +90,7 @@ def write_to_notion(events):
         print(f"{'✅' if r.status_code == 200 else '❌'} {ev['date']} {ev['time']} — {ev['name']}")
 
 if __name__ == "__main__":
-    print("🔍 Fetching Investing.com Economic Calendar...")
+    print("🔍 Fetching FMP Economic Calendar...")
     events = fetch_events()
     print(f"📅 Found {len(events)} High-Impact USD events this week.")
     if events:
