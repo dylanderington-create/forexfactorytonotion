@@ -22,3 +22,4 @@ jobs:
         run: python forex_factory_sync.py
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+          FMP_API_KEY:  ${{ secrets.FMP_API_KEY }}
