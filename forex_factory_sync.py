@@ -127,9 +127,3 @@ if __name__ == "__main__":
         print("⚠️  No events found.")
 ```
 
----
-
-**File 2: `requirements.txt`**
-```
-requests
-beautifulsoup4
