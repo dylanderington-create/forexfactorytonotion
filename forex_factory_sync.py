@@ -1,5 +1,6 @@
 import os
 import requests
+import json
 from datetime import datetime, timedelta
 
 NOTION_TOKEN = os.environ["NOTION_TOKEN"]
@@ -19,43 +20,48 @@ def get_week_range():
 
 def fetch_events():
     monday, sunday = get_week_range()
-    url = "https://economic-calendar.tradingview.com/events"
-    params = {
-        "from":       f"{monday.isoformat()}T00:00:00.000Z",
-        "to":         f"{sunday.isoformat()}T23:59:59.000Z",
-        "countries":  "US",
-        "importances": "high",
-    }
+
+    url = "https://api.investing.com/api/financialdata/economic_calendar"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36",
-        "Origin":     "https://www.tradingview.com",
-        "Referer":    "https://www.tradingview.com/",
+        "Accept": "application/json",
+        "domain-id": "www",
+        "Origin": "https://www.investing.com",
+        "Referer": "https://www.investing.com/economic-calendar/",
     }
-    resp = requests.get(url, params=params, headers=headers, timeout=15)
+    params = {
+        "country[]": "5",  # USA
+        "importance[]": "3",  # High only
+        "dateFrom": monday.isoformat(),
+        "dateTo": sunday.isoformat(),
+        "timeZone": "55",
+        "timeFilter": "timeRemain",
+        "currentTab": "custom",
+        "submitFilters": "1",
+        "limit_from": "0",
+    }
+
+    resp = requests.get(url, headers=headers, params=params, timeout=15)
     resp.raise_for_status()
     data = resp.json()
 
     events = []
-    for ev in data.get("result", []):
-        if ev.get("importance") != "high":
-            continue
-        if ev.get("country") != "US":
-            continue
+    for ev in data.get("data", []):
+        name     = ev.get("name", "").strip()
+        date_str = ev.get("date", "")[:10]
+        time_str = ev.get("date", "")[11:16] + " UTC" if len(ev.get("date","")) > 10 else ""
+        forecast = str(ev.get("forecast", "") or "")
+        previous = str(ev.get("previous", "") or "")
 
-        dt = datetime.strptime(ev["date"][:19], "%Y-%m-%dT%H:%M:%S")
-        # Zeitzone UTC → MEZ (+1) bzw. MESZ (+2)
-        # Einfach als UTC ausgeben, du siehst dann selbst
-        date_str = dt.date().isoformat()
-        time_str = dt.strftime("%H:%M") + " UTC"
-
-        events.append({
-            "name":     ev.get("title", ""),
-            "date":     date_str,
-            "time":     time_str,
-            "currency": "USD",
-            "forecast": str(ev.get("forecast", "") or ""),
-            "previous": str(ev.get("previous", "") or ""),
-        })
+        if name and date_str:
+            events.append({
+                "name":     name,
+                "date":     date_str,
+                "time":     time_str,
+                "currency": "USD",
+                "forecast": forecast,
+                "previous": previous,
+            })
 
     return events
 
@@ -97,7 +103,7 @@ def write_to_notion(events):
         print(f"{'✅' if r.status_code == 200 else '❌'} {ev['date']} {ev['time']} — {ev['name']}")
 
 if __name__ == "__main__":
-    print("🔍 Fetching TradingView Economic Calendar...")
+    print("🔍 Fetching Investing.com Economic Calendar...")
     events = fetch_events()
     print(f"📅 Found {len(events)} High-Impact USD events this week.")
     if events:
