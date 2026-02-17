@@ -1,9 +1,9 @@
-name: Forex Factory → Notion
+name: Forex News → Notion
 
 on:
   schedule:
-    - cron: '0 6 * * 1'   # Jeden Montag 06:00 UTC
-  workflow_dispatch:        # Manuell auslösbar
+    - cron: '0 6 * * 1'
+  workflow_dispatch:
 
 jobs:
   sync:
@@ -16,10 +16,10 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install requests
 
       - name: Run sync
         run: python forex_factory_sync.py
         env:
-          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          FMP_API_KEY:  ${{ secrets.FMP_API_KEY }}
+          NOTION_TOKEN:    ${{ secrets.NOTION_TOKEN }}
+          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
