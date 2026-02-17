@@ -2,9 +2,9 @@ import os
 import requests
 from datetime import datetime, timedelta
 
-NOTION_TOKEN = os.environ["NOTION_TOKEN"]
-FMP_API_KEY  = os.environ["FMP_API_KEY"]
-DATABASE_ID  = "30abc939-7ab2-80bb-b951-fd1f33054d04"
+NOTION_TOKEN  = os.environ["NOTION_TOKEN"]
+FINNHUB_KEY   = os.environ["FINNHUB_API_KEY"]
+DATABASE_ID   = "30abc939-7ab2-80bb-b951-fd1f33054d04"
 
 HEADERS_NOTION = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
@@ -20,15 +20,15 @@ def get_week_range():
 
 def fetch_events():
     monday, sunday = get_week_range()
-    url = "https://financialmodelingprep.com/api/v3/economic_calendar"
+    url = "https://finnhub.io/api/v1/calendar/economic"
     params = {
-        "from":    monday.isoformat(),
-        "to":      sunday.isoformat(),
-        "apikey":  FMP_API_KEY,
+        "from":   monday.isoformat(),
+        "to":     sunday.isoformat(),
+        "token":  FINNHUB_KEY,
     }
     resp = requests.get(url, params=params, timeout=15)
     resp.raise_for_status()
-    data = resp.json()
+    data = resp.json().get("economicCalendar", [])
 
     events = []
     for ev in data:
@@ -37,7 +37,7 @@ def fetch_events():
         if ev.get("impact", "").lower() != "high":
             continue
 
-        date_raw = ev.get("date", "")
+        date_raw = ev.get("time", "")
         date_str = date_raw[:10]
         time_str = date_raw[11:16] + " UTC" if len(date_raw) > 10 else ""
 
@@ -47,7 +47,7 @@ def fetch_events():
             "time":     time_str,
             "currency": "USD",
             "forecast": str(ev.get("estimate", "") or ""),
-            "previous": str(ev.get("previous", "") or ""),
+            "previous": str(ev.get("prev", "") or ""),
         })
 
     return events
@@ -90,7 +90,7 @@ def write_to_notion(events):
         print(f"{'✅' if r.status_code == 200 else '❌'} {ev['date']} {ev['time']} — {ev['name']}")
 
 if __name__ == "__main__":
-    print("🔍 Fetching FMP Economic Calendar...")
+    print("🔍 Fetching Finnhub Economic Calendar...")
     events = fetch_events()
     print(f"📅 Found {len(events)} High-Impact USD events this week.")
     if events:
