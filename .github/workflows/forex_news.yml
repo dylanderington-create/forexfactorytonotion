@@ -1,25 +1,28 @@
-name: Forex News → Notion
+name: Trading News Sync
 
 on:
   schedule:
-    - cron: '0 6 * * 1'
-  workflow_dispatch:
+    # Jeden Montag um 07:00 MEZ (06:00 UTC)
+    - cron: "0 6 * * 1"
+  workflow_dispatch:  # Manuell auslösbar
 
 jobs:
   sync:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
 
-      - uses: actions/setup-python@v4
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: "3.11"
 
       - name: Install dependencies
         run: pip install requests
 
-      - name: Run sync
-        run: python forex_factory_sync.py
+      - name: Run Trading News Sync
         env:
-          NOTION_TOKEN:    ${{ secrets.NOTION_TOKEN }}
-          FINNHUB_API_KEY: ${{ secrets.FINNHUB_API_KEY }}
+          NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+        run: python trading_news_sync.py
