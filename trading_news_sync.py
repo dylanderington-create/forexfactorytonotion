@@ -5,7 +5,7 @@ from datetime import datetime, timedelta, timezone
 import re
 
 NOTION_TOKEN = os.environ["NOTION_TOKEN"]
-DATABASE_ID  = "30abc939-7ab2-8052-a440-000bf01fba7a"
+DATABASE_ID  = "ef6933a2-9055-4dab-a66a-5d7a2f81da46"
 
 HEADERS_NOTION = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
