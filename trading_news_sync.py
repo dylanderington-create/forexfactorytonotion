@@ -36,10 +36,29 @@ def fetch_events():
     print(f"   Status: {resp.status_code}")
     resp.raise_for_status()
 
-    reader = csv.DictReader(io.StringIO(resp.text))
-    events = []
+    # DEBUG: Zeige die ersten 5 Zeilen des CSV roh
+    lines = resp.text.strip().split("\n")
+    print(f"\n🔍 DEBUG - CSV Header: {lines[0]}")
+    print(f"🔍 DEBUG - Erste 3 Zeilen:")
+    for line in lines[1:4]:
+        print(f"   {line}")
 
-    for row in reader:
+    reader = csv.DictReader(io.StringIO(resp.text))
+    
+    # DEBUG: Zeige alle verfügbaren Felder
+    rows = list(reader)
+    if rows:
+        print(f"\n🔍 DEBUG - Feldnamen: {list(rows[0].keys())}")
+        print(f"🔍 DEBUG - Beispiel-Zeile: {rows[0]}")
+        
+        # Zeige alle unique countries und impacts
+        countries = set(r.get("country", "") for r in rows[:50])
+        impacts = set(r.get("impact", "") for r in rows[:50])
+        print(f"\n🔍 DEBUG - Countries: {countries}")
+        print(f"🔍 DEBUG - Impacts: {impacts}")
+
+    events = []
+    for row in rows:
         country  = row.get("country", "").strip()
         impact   = row.get("impact", "").strip().lower()
         date_str = row.get("date", "").strip()
@@ -78,7 +97,7 @@ def fetch_events():
             "previous": row.get("previous", "").strip(),
         })
 
-    print(f"   ✅ {len(events)} High-Impact USD events found")
+    print(f"\n   ✅ {len(events)} High-Impact USD events found")
     return events
 
 def clear_existing_entries():
@@ -86,28 +105,24 @@ def clear_existing_entries():
     url = f"https://api.notion.com/v1/databases/{DATABASE_ID}/query"
     has_more = True
     next_cursor = None
-
     while has_more:
         payload = {"page_size": 100}
         if next_cursor:
             payload["start_cursor"] = next_cursor
         resp = requests.post(url, headers=HEADERS_NOTION, json=payload)
         data = resp.json()
-
         for page in data.get("results", []):
             requests.patch(
                 f"https://api.notion.com/v1/pages/{page['id']}",
                 headers=HEADERS_NOTION,
                 json={"archived": True}
             )
-
         has_more = data.get("has_more", False)
         next_cursor = data.get("next_cursor")
 
 def write_to_notion(events):
     print("📝 Writing to Notion...")
     url = "https://api.notion.com/v1/pages"
-
     for ev in events:
         payload = {
             "parent": {"database_id": DATABASE_ID},
@@ -130,9 +145,7 @@ def write_to_notion(events):
 if __name__ == "__main__":
     monday, sunday = get_week_range()
     print(f"📅 Week: {monday} → {sunday}")
-
     events = fetch_events()
-
     if events:
         clear_existing_entries()
         write_to_notion(events)
