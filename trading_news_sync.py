@@ -1,7 +1,7 @@
 import os
 import requests
 from datetime import datetime, timedelta, timezone
-import dateutil.parser as date_parser
+from dateutil import parser as date_parser
 
 NOTION_TOKEN = os.environ["NOTION_TOKEN"]
 DATABASE_ID  = "ef6933a2-9055-4dab-a66a-5d7a2f81da46"
@@ -12,6 +12,11 @@ HEADERS_NOTION = {
     "Notion-Version": "2022-06-28",
 }
 
+HEADERS_WEB = {
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "application/json, text/plain, */*",
+}
+
 def get_week_range():
     today = datetime.now(timezone.utc).date()
     monday = today - timedelta(days=today.weekday())
@@ -20,29 +25,38 @@ def get_week_range():
 
 def fetch_events():
     monday, sunday = get_week_range()
-    print(f"📡 Fetching Forex Factory Calendar JSON...")
 
-    url = "https://cdn-nfs.faireconomy.media/ff_calendar_thisweek.json"
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
-    }
+    # Versuche mehrere Quellen
+    urls = [
+        "https://cdn-nfs.faireconomy.media/ff_calendar_thisweek.json",
+        "https://nfs.faireconomy.media/ff_calendar_thisweek.json",
+    ]
 
-    resp = requests.get(url, headers=headers, timeout=20)
-    print(f"   Status: {resp.status_code}")
-    resp.raise_for_status()
+    raw = None
+    for url in urls:
+        try:
+            print(f"📡 Trying: {url}")
+            resp = requests.get(url, headers=HEADERS_WEB, timeout=20)
+            print(f"   Status: {resp.status_code}")
+            if resp.status_code == 200:
+                raw = resp.json()
+                print(f"   ✅ Got {len(raw)} events")
+                break
+        except Exception as e:
+            print(f"   ❌ Failed: {e}")
+            continue
 
-    raw = resp.json()
-    print(f"   Total events in feed: {len(raw)}")
+    if not raw:
+        print("⚠️ All sources failed.")
+        return []
 
     events = []
     for ev in raw:
-        # Nur USD High Impact
         if ev.get("country") != "USD":
             continue
         if ev.get("impact") != "High":
             continue
 
-        # Datum parsen
         try:
             dt_parsed = date_parser.parse(ev["date"])
             event_date = dt_parsed.date()
@@ -66,7 +80,7 @@ def fetch_events():
             "previous": ev.get("previous", "") or "",
         })
 
-    print(f"   ✅ {len(events)} High-Impact USD events found")
+    print(f"✅ {len(events)} High-Impact USD events for this week")
     return events
 
 def clear_existing_entries():
@@ -120,4 +134,4 @@ if __name__ == "__main__":
         write_to_notion(events)
         print("🎉 Done!")
     else:
-        print("⚠️  No High-Impact USD events found.")
+        print("⚠️ No events found.")
