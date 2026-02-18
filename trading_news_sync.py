@@ -1,12 +1,10 @@
 import os
 import requests
-import csv
-import io
 from datetime import datetime, timedelta, timezone
+import dateutil.parser as date_parser
 
-NOTION_TOKEN      = os.environ["NOTION_TOKEN"]
-ALPHA_VANTAGE_KEY = os.environ["ALPHA_VANTAGE_KEY"]
-DATABASE_ID       = "ef6933a2-9055-4dab-a66a-5d7a2f81da46"
+NOTION_TOKEN = os.environ["NOTION_TOKEN"]
+DATABASE_ID  = "ef6933a2-9055-4dab-a66a-5d7a2f81da46"
 
 HEADERS_NOTION = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
@@ -22,82 +20,53 @@ def get_week_range():
 
 def fetch_events():
     monday, sunday = get_week_range()
-    print(f"📡 Fetching Alpha Vantage Economic Calendar...")
-    print(f"   Week: {monday} → {sunday}")
+    print(f"📡 Fetching Forex Factory Calendar JSON...")
 
-    url = "https://www.alphavantage.co/query"
-    params = {
-        "function": "ECONOMIC_CALENDAR",
-        "horizon":  "3month",
-        "apikey":   ALPHA_VANTAGE_KEY,
+    url = "https://cdn-nfs.faireconomy.media/ff_calendar_thisweek.json"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36",
     }
 
-    resp = requests.get(url, params=params, timeout=20)
+    resp = requests.get(url, headers=headers, timeout=20)
     print(f"   Status: {resp.status_code}")
     resp.raise_for_status()
 
-    # DEBUG: Zeige die ersten 5 Zeilen des CSV roh
-    lines = resp.text.strip().split("\n")
-    print(f"\n🔍 DEBUG - CSV Header: {lines[0]}")
-    print(f"🔍 DEBUG - Erste 3 Zeilen:")
-    for line in lines[1:4]:
-        print(f"   {line}")
-
-    reader = csv.DictReader(io.StringIO(resp.text))
-    
-    # DEBUG: Zeige alle verfügbaren Felder
-    rows = list(reader)
-    if rows:
-        print(f"\n🔍 DEBUG - Feldnamen: {list(rows[0].keys())}")
-        print(f"🔍 DEBUG - Beispiel-Zeile: {rows[0]}")
-        
-        # Zeige alle unique countries und impacts
-        countries = set(r.get("country", "") for r in rows[:50])
-        impacts = set(r.get("impact", "") for r in rows[:50])
-        print(f"\n🔍 DEBUG - Countries: {countries}")
-        print(f"🔍 DEBUG - Impacts: {impacts}")
+    raw = resp.json()
+    print(f"   Total events in feed: {len(raw)}")
 
     events = []
-    for row in rows:
-        country  = row.get("country", "").strip()
-        impact   = row.get("impact", "").strip().lower()
-        date_str = row.get("date", "").strip()
-
-        if country != "United States":
+    for ev in raw:
+        # Nur USD High Impact
+        if ev.get("country") != "USD":
             continue
-        if impact != "high":
+        if ev.get("impact") != "High":
             continue
 
+        # Datum parsen
         try:
-            event_date = datetime.strptime(date_str, "%Y-%m-%d").date()
+            dt_parsed = date_parser.parse(ev["date"])
+            event_date = dt_parsed.date()
         except Exception:
             continue
 
-        if not (monday <= event_date <= sunday):
-            continue
-
-        time_str = row.get("time", "").strip()
-        if time_str and time_str != "-":
-            try:
-                t = datetime.strptime(time_str, "%H:%M")
-                mez = t + timedelta(hours=1)
-                time_display = mez.strftime("%H:%M") + " MEZ"
-            except Exception:
-                time_display = time_str
+        # UTC → MEZ (+1)
+        if dt_parsed.tzinfo:
+            mez = dt_parsed + timedelta(hours=1)
         else:
-            time_display = "Ganztägig"
+            mez = dt_parsed
+        time_display = mez.strftime("%H:%M") + " MEZ"
 
         events.append({
-            "title":    row.get("event", row.get("title", "")).strip(),
+            "title":    ev.get("title", "").strip(),
             "date":     event_date.isoformat(),
             "time":     time_display,
             "currency": "USD",
             "impact":   "🔴 High",
-            "forecast": row.get("forecast", "").strip(),
-            "previous": row.get("previous", "").strip(),
+            "forecast": ev.get("forecast", "") or "",
+            "previous": ev.get("previous", "") or "",
         })
 
-    print(f"\n   ✅ {len(events)} High-Impact USD events found")
+    print(f"   ✅ {len(events)} High-Impact USD events found")
     return events
 
 def clear_existing_entries():
@@ -151,4 +120,4 @@ if __name__ == "__main__":
         write_to_notion(events)
         print("🎉 Done!")
     else:
-        print("⚠️  No High-Impact USD events found for this week.")
+        print("⚠️  No High-Impact USD events found.")
