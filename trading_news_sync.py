@@ -4,7 +4,7 @@ from datetime import datetime, timedelta, timezone
 from dateutil import parser as date_parser
 
 NOTION_TOKEN = os.environ["NOTION_TOKEN"]
-DATABASE_ID  = "ef6933a2-9055-4dab-a66a-5d7a2f81da46"
+DATABASE_ID  = os.environ.get("DATABASE_ID", "67b34d25-6b49-44d6-840f-48c0d4af768a")
 
 HEADERS_NOTION = {
     "Authorization": f"Bearer {NOTION_TOKEN}",
