@@ -3,328 +3,234 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Inspekdrohne</title>
-<meta name="description" content="Drohneninspektion, Thermografie, Dach- und Gebäudevermessung, Baustellendokumentation und Luftbilder in Hockenheim, Mannheim und dem ganzen Rhein-Neckar-Kreis.">
+<title>Drohneninspektion &amp; Thermografie Rhein-Neckar | Inspekdrohne</title>
+<meta name="description" content="Dachinspektion, Wärmebild-Thermografie, Vermessung und Luftbilder per Drohne. Ohne Gerüst, aus Neulußheim für Hockenheim, Mannheim, Heidelberg und den Rhein-Neckar-Kreis.">
+<link rel="canonical" href="https://inspekdrohne.de/">
+<meta name="robots" content="index,follow">
 <meta name="theme-color" content="#07090c">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Archivo:wdth,wght@100,400;100,500;100,700;125,800&family=JetBrains+Mono:wght@400;600&display=swap">
-<style>
-/* Layout: ein Drohnenflug von oben nach unten — HUD-Rahmen, Wärmebild als Leitmotiv, harte kondensierte Typo auf fast schwarzem Grund. */
-:root{
-  --ink:#07090c;          /* Nachtflug-Schwarz, leicht blaustichig */
-  --ink-2:#0e1217;        /* Paneele */
-  --ink-3:#151a21;
-  --line:rgba(190,210,230,.13);
-  --fg:#eef1f4;
-  --mute:#8d98a3;
-  --cold:#2a1266;         /* Ironbow: kalt */
-  --magenta:#b0147a;
-  --heat:#ff5a0a;         /* Signal: Wärmeleck-Orange */
-  --hot:#ffc21a;
-  --white-hot:#fff6d8;
-  --ironbow:linear-gradient(90deg,#12052e 0%,#3a0f7a 18%,#9a1283 38%,#e0321e 58%,#ff7d00 74%,#ffc21a 88%,#fff6d8 100%);
-  --f-display:"Big Shoulders Display","Oswald","Arial Narrow",Impact,sans-serif;
-  --f-body:"Archivo","Helvetica Neue",Arial,sans-serif;
-  --f-mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
-  --gutter:clamp(16px,4vw,56px);
-  --max:1440px;
-  color-scheme:dark;
+<meta property="og:type" content="website">
+<meta property="og:locale" content="de_DE">
+<meta property="og:site_name" content="Inspekdrohne">
+<meta property="og:url" content="https://inspekdrohne.de/">
+<meta property="og:title" content="Inspekdrohne – Wir sehen, was andere übersehen.">
+<meta property="og:description" content="Drohneninspektion, Thermografie, Vermessung und Luftbilder im Rhein-Neckar-Kreis. Ohne Gerüst. Ohne Hubsteiger. Ohne Risiko.">
+<meta property="og:image" content="https://inspekdrohne.de/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Inspekdrohne Logo vor einem Wärmebild aus der Luft">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Inspekdrohne – Wir sehen, was andere übersehen.">
+<meta name="twitter:description" content="Drohneninspektion, Thermografie, Vermessung und Luftbilder im Rhein-Neckar-Kreis.">
+<meta name="twitter:image" content="https://inspekdrohne.de/assets/img/og-image.jpg">
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preload" href="/assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/css/site.css">
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "LocalBusiness",
+   "@id": "https://inspekdrohne.de/#business",
+   "name": "Inspekdrohne",
+   "alternateName": "Inspekdrohne – Luftbildaufnahmen Sezer Özgüden",
+   "description": "Drohneninspektion, Thermografie, Dach- und Gebäudevermessung, Baustellendokumentation und Luftbilder im Rhein-Neckar-Kreis.",
+   "url": "https://inspekdrohne.de/",
+   "logo": "https://inspekdrohne.de/assets/img/logo-512.png",
+   "image": "https://inspekdrohne.de/assets/img/og-image.jpg",
+   "telephone": "+49 6205 3646528",
+   "email": "info@inspekdrohne.de",
+   "founder": {
+    "@type": "Person",
+    "name": "Sezer Özgüden"
+   },
+   "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Am Sandbuckel 6",
+    "postalCode": "68809",
+    "addressLocality": "Neulußheim",
+    "addressRegion": "Baden-Württemberg",
+    "addressCountry": "DE"
+   },
+   "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 49.2972,
+    "longitude": 8.5197
+   },
+   "areaServed": [
+    {
+     "@type": "City",
+     "name": "Neulußheim"
+    },
+    {
+     "@type": "City",
+     "name": "Hockenheim"
+    },
+    {
+     "@type": "City",
+     "name": "Mannheim"
+    },
+    {
+     "@type": "City",
+     "name": "Heidelberg"
+    },
+    {
+     "@type": "City",
+     "name": "Schwetzingen"
+    },
+    {
+     "@type": "City",
+     "name": "Speyer"
+    },
+    {
+     "@type": "City",
+     "name": "Walldorf"
+    },
+    {
+     "@type": "City",
+     "name": "Wiesloch"
+    },
+    {
+     "@type": "City",
+     "name": "Ludwigshafen am Rhein"
+    },
+    {
+     "@type": "City",
+     "name": "Weinheim"
+    },
+    {
+     "@type": "City",
+     "name": "Sinsheim"
+    },
+    {
+     "@type": "AdministrativeArea",
+     "name": "Rhein-Neckar-Kreis"
+    }
+   ],
+   "knowsAbout": [
+    "Drohneninspektion",
+    "Thermografie",
+    "Dachinspektion",
+    "Gebäudevermessung",
+    "Photovoltaik-Inspektion",
+    "Baustellendokumentation",
+    "Luftbilder"
+   ],
+   "makesOffer": [
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Thermografie per Drohne"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Dach- und Gebäudeinspektion"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Dach- und Gebäudevermessung"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Inspektion von Energie- und Industrieanlagen"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Baustellendokumentation"
+     }
+    },
+    {
+     "@type": "Offer",
+     "itemOffered": {
+      "@type": "Service",
+      "name": "Luftbilder und Luftaufnahmen"
+     }
+    }
+   ]
+  },
+  {
+   "@type": "WebSite",
+   "@id": "https://inspekdrohne.de/#website",
+   "url": "https://inspekdrohne.de/",
+   "name": "Inspekdrohne",
+   "inLanguage": "de-DE",
+   "publisher": {
+    "@id": "https://inspekdrohne.de/#business"
+   }
+  },
+  {
+   "@type": "FAQPage",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "Brauche ich eine Genehmigung?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "In der Regel nicht, darum kümmern wir uns. Wir prüfen Luftraum, Auflagen und notwendige Anmeldungen und planen den Flug nach geltendem Luftrecht. Sie sorgen nur dafür, dass wir an das Objekt herankommen."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Was kostet eine Drohneninspektion?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Das hängt von Objekt, Größe, Leistung und Aufwand der Auswertung ab. Sie bekommen nach Ihrer Anfrage ein verbindliches Angebot. Im Vergleich zu Gerüst oder Hubsteiger ist eine Befliegung meist deutlich günstiger."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Wann ist die beste Zeit für Thermografie?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Gebäudethermografie funktioniert am besten in der kalten Jahreszeit mit großem Temperaturunterschied zwischen innen und außen, idealerweise früh morgens. Photovoltaik prüfen wir dagegen bei Sonne und im laufenden Betrieb."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Was bekomme ich am Ende?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Je nach Auftrag hochauflösende Fotos und Videos, Wärmebilder mit Temperaturwerten, Aufmaß oder Orthofoto und einen verständlichen Bericht mit markierten Befunden. Alles digital, zum Weitergeben an Handwerker, Gutachter oder Versicherung."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Und bei schlechtem Wetter?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Bei starkem Wind, Regen oder Nebel fliegen wir nicht, weil die Datenqualität leidet. Wir verschieben kurzfristig auf das nächste passende Zeitfenster."
+     }
+    },
+    {
+     "@type": "Question",
+     "name": "Was ist mit Datenschutz und Nachbarn?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Wir fliegen gezielt Ihr Objekt an, vermeiden Aufnahmen unbeteiligter Personen und behandeln alle Aufnahmen vertraulich. Mehr dazu in der Datenschutzerklärung."
+     }
+    }
+   ]
+  }
+ ]
 }
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;background:var(--ink)}
-body{margin:0;background:var(--ink);color:var(--fg);font-family:var(--f-body);font-size:17px;line-height:1.6;font-stretch:100%;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{max-width:100%;display:block}
-a{color:inherit}
-::selection{background:var(--heat);color:var(--ink)}
-:focus-visible{outline:2px solid var(--hot);outline-offset:3px}
-.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--gutter)}
-.mono{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--hot);display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:28px;height:2px;background:var(--ironbow)}
-h1,h2,h3{font-family:var(--f-display);font-weight:900;text-transform:uppercase;line-height:.86;letter-spacing:-.005em;margin:0;text-wrap:balance}
-h2{font-size:clamp(52px,9vw,148px)}
-.heat-text{background:var(--ironbow);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:heatshift 7s ease-in-out infinite alternate}
-@keyframes heatshift{from{background-position:0% 0}to{background-position:100% 0}}
-.outline-text{color:transparent;-webkit-text-stroke:1.5px var(--fg)}
-section{position:relative}
-
-/* ---------- Buttons ---------- */
-.btn{--h:58px;position:relative;display:inline-flex;align-items:center;gap:14px;height:var(--h);padding:0 26px;font-family:var(--f-body);font-weight:800;font-stretch:125%;font-size:14px;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;border:0;cursor:pointer;color:var(--ink);background:var(--hot);overflow:hidden;isolation:isolate;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px));transition:transform .25s}
-.btn::before{content:"";position:absolute;inset:0;background:var(--ironbow);transform:translateX(-101%);transition:transform .5s cubic-bezier(.7,0,.2,1);z-index:-1}
-.btn:hover::before{transform:none}
-.btn:hover{color:var(--ink)}
-.btn .arr{display:inline-block;transition:transform .3s}
-.btn:hover .arr{transform:translateX(5px)}
-.btn.ghost{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1.5px var(--line)}
-.btn.ghost:hover{color:var(--ink)}
-
-/* ---------- Preloader ---------- */
-#pre{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;transition:opacity .6s,visibility .6s}
-#pre.done{opacity:0;visibility:hidden}
-#pre .box{width:min(440px,86vw);font-family:var(--f-mono);font-size:12px;letter-spacing:.1em;color:var(--mute)}
-#pre .row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--line);opacity:.25}
-#pre .row.on{opacity:1}
-#pre .row b{color:var(--hot);font-weight:600}
-#pre .bar{height:3px;background:var(--ink-3);margin-top:18px;overflow:hidden}
-#pre .bar i{display:block;height:100%;width:0;background:var(--ironbow);transition:width .25s}
-
-/* ---------- Nav ---------- */
-.nav{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .3s,backdrop-filter .3s,border-color .3s;border-bottom:1px solid transparent}
-.nav.solid{background:rgba(7,9,12,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-color:var(--line)}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:78px;gap:24px}
-.logo{display:flex;align-items:center;gap:12px;text-decoration:none;min-width:0}
-.logo img{height:46px;width:auto}
-.logo img+.wm{display:none}
-.logo .wm{font-family:var(--f-display);font-weight:900;font-size:28px;letter-spacing:.02em;text-transform:uppercase;line-height:1}
-.logo .wm span{color:var(--hot)}
-.nav ul{display:flex;gap:30px;list-style:none;margin:0;padding:0}
-.nav ul a{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--mute);transition:color .2s;position:relative}
-.nav ul a:hover{color:var(--fg)}
-.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:2px;background:var(--ironbow);transform:scaleX(0);transform-origin:left;transition:transform .3s}
-.nav ul a:hover::after{transform:none}
-.nav .btn{--h:46px;padding:0 20px;font-size:12px}
-.burger{display:none;background:none;border:1px solid var(--line);color:var(--fg);width:46px;height:46px;cursor:pointer}
-.burger span{display:block;width:18px;height:2px;background:currentColor;margin:4px auto;transition:transform .3s,opacity .3s}
-@media (max-width:1020px){
-  .nav ul{position:fixed;inset:78px 0 auto 0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding:8px var(--gutter) 24px;transform:translateY(-120%);transition:transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
-  .nav ul.open{transform:none}
-  .nav ul a{display:block;padding:16px 0;font-size:14px;border-bottom:1px solid var(--line)}
-  .burger{display:block}
-  .nav .btn.cta-top{display:none}
-}
-
-/* ---------- Hero ---------- */
-.hero{min-height:max(640px,min(100svh,980px));display:flex;align-items:flex-end;overflow:hidden;padding-top:110px;padding-bottom:48px;isolation:isolate}
-#thermal{position:absolute;inset:0;width:100%;height:100%;z-index:-3;display:block;background:#12052e}
-.hero::before{content:"";position:absolute;inset:0;z-index:-2;background:
-  linear-gradient(90deg,rgba(7,9,12,.94) 0%,rgba(7,9,12,.72) 38%,rgba(7,9,12,.15) 70%,rgba(7,9,12,.35) 100%),
-  linear-gradient(0deg,var(--ink) 0%,rgba(7,9,12,0) 30%),
-  repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
-.hud{position:absolute;inset:96px var(--gutter) 28px;z-index:-1;pointer-events:none}
-.hud .c{position:absolute;width:34px;height:34px;border:2px solid rgba(255,246,216,.7)}
-.hud .tl{top:0;left:0;border-right:0;border-bottom:0}.hud .tr{top:0;right:0;border-left:0;border-bottom:0}
-.hud .bl{bottom:0;left:0;border-right:0;border-top:0}.hud .br{bottom:0;right:0;border-left:0;border-top:0}
-.hud .tele{position:absolute;top:14px;right:52px;text-align:right;font-family:var(--f-mono);font-size:11px;letter-spacing:.12em;color:rgba(238,241,244,.8);line-height:1.9}
-.hud .tele b{color:var(--hot);font-weight:600}
-.hud .rec{position:absolute;top:14px;left:52px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;display:flex;align-items:center;gap:8px}
-.hud .rec i{width:9px;height:9px;border-radius:50%;background:#ff2d2d;animation:blink 1.1s steps(2) infinite}
-@keyframes blink{50%{opacity:0}}
-.hud .scale{position:absolute;right:0;top:50%;transform:translateY(-50%);display:flex;align-items:stretch;gap:8px;font-family:var(--f-mono);font-size:10px;color:rgba(238,241,244,.75)}
-.hud .scale .grad{width:10px;height:220px;background:linear-gradient(0deg,#12052e,#3a0f7a,#9a1283,#e0321e,#ff7d00,#ffc21a,#fff6d8)}
-.hud .scale .lbl{display:flex;flex-direction:column;justify-content:space-between;text-align:right}
-.hero-inner{position:relative;width:100%}
-.hero h1{font-size:clamp(64px,12.4vw,210px);max-width:12ch}
-.hero h1 .ln{display:block;overflow:hidden;padding:.1em 0 .03em;margin-top:-.1em}
-.hero h1 .ln>span{display:inline-block}
-.hero-sub{display:grid;grid-template-columns:minmax(0,560px) auto;gap:32px 56px;align-items:end;margin-top:36px}
-.hero-sub p{margin:0;font-size:clamp(17px,1.45vw,20px);color:#cfd6dc;max-width:52ch}
-.hero-sub p strong{color:var(--fg)}
-.hero-cta{display:flex;flex-wrap:wrap;gap:14px}
-.probe{position:absolute;z-index:-1;pointer-events:none;width:120px;height:120px;margin:-60px 0 0 -60px;left:0;top:0;opacity:0;transition:opacity .3s}
-.probe.on{opacity:1}
-.probe::before,.probe::after{content:"";position:absolute;background:var(--white-hot)}
-.probe::before{left:50%;top:18px;bottom:18px;width:1.5px;transform:translateX(-50%)}
-.probe::after{top:50%;left:18px;right:18px;height:1.5px;transform:translateY(-50%)}
-.probe .ring{position:absolute;inset:34px;border:1.5px solid var(--white-hot);border-radius:50%}
-.probe .val{position:absolute;left:100%;top:6px;font-family:var(--f-mono);font-size:13px;font-weight:600;white-space:nowrap;color:var(--ink);background:var(--white-hot);padding:3px 7px}
-@media (max-width:860px){
-  .hero-sub{grid-template-columns:1fr}
-  .hud .scale,.hud .tele{display:none}
-  .hero::before{background:linear-gradient(0deg,var(--ink) 8%,rgba(7,9,12,.7) 55%,rgba(7,9,12,.45) 100%),repeating-linear-gradient(0deg,rgba(0,0,0,.18) 0 1px,transparent 1px 3px)}
-}
-
-/* ---------- Ticker ---------- */
-.ticker{border-block:1px solid var(--line);overflow:hidden;background:var(--ink-2)}
-.ticker .track{display:flex;width:max-content;animation:tick 38s linear infinite}
-.ticker .item{display:flex;align-items:center;gap:28px;padding:22px 14px;font-family:var(--f-display);font-weight:700;font-size:clamp(26px,3vw,40px);text-transform:uppercase;white-space:nowrap}
-.ticker .item::after{content:"";width:14px;height:14px;background:var(--ironbow);transform:rotate(45deg);margin-left:14px}
-@keyframes tick{to{transform:translateX(-50%)}}
-
-/* ---------- Statement / Vergleich ---------- */
-.statement{padding-block:clamp(90px,13vw,190px) clamp(70px,9vw,130px)}
-.statement h2{font-size:clamp(46px,8.2vw,132px);max-width:14ch}
-.statement h2 .strike{position:relative;color:var(--mute)}
-.statement h2 .strike::after{content:"";position:absolute;left:-2%;right:-2%;top:52%;height:.09em;background:var(--heat);transform:scaleX(var(--s,0));transform-origin:left;transition:transform .8s cubic-bezier(.7,0,.2,1)}
-.statement h2.struck .strike::after{--s:1}
-.statement .lead{display:grid;grid-template-columns:1fr minmax(0,520px);gap:48px;align-items:end;margin-bottom:64px}
-.statement .lead p{margin:0;color:#c3cad1;font-size:19px}
-.cmp{border:1px solid var(--line);display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr)}
-.cmp>div{padding:22px 26px;border-bottom:1px solid var(--line);min-width:0}
-.cmp .h{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);background:var(--ink-2)}
-.cmp .h.us{color:var(--ink);background:var(--hot)}
-.cmp .k{font-family:var(--f-display);font-weight:700;font-size:26px;text-transform:uppercase;line-height:1.05}
-.cmp .old{color:var(--mute)}
-.cmp .new{background:rgba(255,194,26,.06);color:var(--fg);font-weight:500}
-.cmp .new::before{content:"▲ ";color:var(--hot);font-size:.8em}
-.cmp>div:nth-last-child(-n+3){border-bottom:0}
-@media (max-width:760px){
-  .statement .lead{grid-template-columns:1fr}
-  .cmp{grid-template-columns:1fr 1fr}
-  .cmp .k{grid-column:1/-1;border-bottom:0;padding-bottom:4px;background:var(--ink-2);font-size:22px}
-  .cmp .h.lab{display:none}
-  .cmp>div:nth-last-child(-n+3){border-bottom:1px solid var(--line)}
-  .cmp>div:nth-last-child(-n+2){border-bottom:0}
-}
-
-/* ---------- Leistungen ---------- */
-.services{padding-block:clamp(80px,10vw,150px)}
-.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;margin-bottom:56px}
-.sec-head p{max-width:44ch;margin:0;color:#c3cad1}
-.svc-list{border-top:1px solid var(--line)}
-.svc{position:relative;display:grid;grid-template-columns:120px minmax(0,1.25fr) minmax(0,1fr) 56px;gap:28px;align-items:center;padding:34px 0;border-bottom:1px solid var(--line);isolation:isolate;cursor:default}
-.svc::before{content:"";position:absolute;inset:0 calc(var(--gutter) * -1);background:var(--ironbow);opacity:0;transform:scaleY(.2);transition:opacity .45s,transform .45s cubic-bezier(.7,0,.2,1);z-index:-1}
-.svc:hover::before{opacity:1;transform:none}
-.svc:hover{color:var(--ink)}
-.svc:hover .desc,.svc:hover .code{color:var(--ink)}
-.svc:hover .tags span{border-color:rgba(7,9,12,.45);color:var(--ink)}
-.svc .code{font-family:var(--f-mono);font-size:12px;letter-spacing:.12em;color:var(--hot);transition:color .3s}
-.svc h3{font-size:clamp(36px,4.6vw,72px);line-height:.9;transition:transform .45s cubic-bezier(.7,0,.2,1)}
-.svc:hover h3{transform:translateX(12px)}
-.svc .desc{color:#c3cad1;font-size:16px;transition:color .3s;min-width:0}
-.svc .desc p{margin:0 0 12px}
-.tags{display:flex;flex-wrap:wrap;gap:6px}
-.tags span{font-family:var(--f-mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:4px 8px;transition:border-color .3s,color .3s}
-.svc .go{width:56px;height:56px;border:1.5px solid currentColor;display:grid;place-items:center;font-size:22px;text-decoration:none;transition:transform .4s,background .3s}
-.svc:hover .go{transform:rotate(-45deg);background:var(--ink);color:var(--hot)}
-@media (max-width:900px){
-  .svc{grid-template-columns:1fr;gap:14px;padding:28px 0}
-  .svc .go{display:none}
-}
-
-/* ---------- Wärmebild-Vergleich ---------- */
-.ir{padding-block:clamp(80px,10vw,150px);background:var(--ink-2);border-block:1px solid var(--line);overflow:hidden}
-.ir-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,2fr);gap:clamp(32px,5vw,72px);align-items:center}
-.ir-copy p{color:#c3cad1}
-.ir-copy h2{font-size:clamp(48px,6.6vw,108px);margin:18px 0 24px}
-.ir-legend{display:grid;gap:12px;margin-top:28px;padding:0;list-style:none}
-.ir-legend li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;font-size:15px;color:#c3cad1}
-.ir-legend b{font-family:var(--f-mono);font-size:11px;display:grid;place-items:center;height:26px;background:var(--hot);color:var(--ink)}
-.ir-legend strong{color:var(--fg);display:block}
-.compare{position:relative;aspect-ratio:12/7;max-width:100%;border:1px solid var(--line);overflow:hidden;user-select:none;touch-action:pan-y;background:#1a1d20;--pos:24%}
-.compare canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.compare .irc{clip-path:inset(0 0 0 var(--pos))}
-.compare .marks{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos));pointer-events:none}
-.mk{position:absolute;transform:translate(-50%,-50%)}
-.mk i{display:block;width:30px;height:30px;border:2px solid var(--white-hot);border-radius:50%;box-shadow:0 0 0 4px rgba(7,9,12,.35)}
-.mk i::after{content:attr(data-n);position:absolute;inset:0;display:grid;place-items:center;font-family:var(--f-mono);font-size:11px;font-weight:600;color:var(--white-hot)}
-.mk span{position:absolute;left:36px;top:-2px;white-space:nowrap;font-family:var(--f-mono);font-size:11px;letter-spacing:.04em;background:rgba(7,9,12,.85);color:var(--fg);padding:4px 7px;border-left:2px solid var(--hot)}
-.mk.l span{left:auto;right:36px;border-left:0;border-right:2px solid var(--hot)}
-.handle{position:absolute;top:0;bottom:0;left:var(--pos);width:2px;background:var(--white-hot);transform:translateX(-1px);pointer-events:none}
-.handle::after{content:"◀ ▶";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:58px;height:58px;display:grid;place-items:center;background:var(--white-hot);color:var(--ink);font-size:12px;letter-spacing:.1em;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px))}
-.compare .tag{position:absolute;top:14px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;padding:5px 9px;background:rgba(7,9,12,.8);pointer-events:none}
-.compare .tag.a{left:14px}.compare .tag.b{right:14px;color:var(--hot)}
-.compare input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
-.compare-cap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:12px;color:var(--mute)}
-@media (max-width:980px){.ir-grid{grid-template-columns:1fr}}
-@media (max-width:560px){.mk span{display:none}}
-
-/* ---------- Ablauf ---------- */
-.flow{padding-block:clamp(90px,11vw,170px)}
-.flow h2{margin-bottom:64px}
-.steps{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:28px;padding-top:70px}
-.steps svg.path{position:absolute;left:0;top:0;width:100%;height:80px;overflow:visible}
-.steps .step{position:relative;border-top:1px solid var(--line);padding-top:26px;min-width:0}
-.step .n{font-family:var(--f-display);font-weight:900;font-size:96px;line-height:.8;display:block;margin-bottom:18px}
-.step h3{font-size:34px;margin-bottom:12px}
-.step p{margin:0;color:#c3cad1;font-size:16px}
-.step .dur{display:inline-block;margin-top:16px;color:var(--hot)}
-@media (max-width:980px){.steps{grid-template-columns:repeat(2,minmax(0,1fr));padding-top:0}.steps svg.path{display:none}}
-@media (max-width:560px){.steps{grid-template-columns:1fr}}
-
-/* ---------- Einsatzgebiet ---------- */
-.area{padding-block:clamp(80px,10vw,150px);border-top:1px solid var(--line)}
-.area-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,90px);align-items:center}
-.radar{position:relative;aspect-ratio:1;max-width:100%;width:min(620px,100%);justify-self:center}
-.radar canvas{width:100%;height:100%;display:block}
-.area h2{font-size:clamp(48px,7vw,116px);margin:18px 0 26px}
-.cities{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0 34px;padding:0;list-style:none}
-.cities li{font-family:var(--f-mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;padding:9px 12px;border:1px solid var(--line);transition:background .25s,color .25s,border-color .25s;cursor:default}
-.cities li.base{background:var(--hot);color:var(--ink);border-color:var(--hot)}
-.cities li:hover,.cities li.hl{border-color:var(--hot);color:var(--hot)}
-.cities li.base:hover{color:var(--ink)}
-.area p{color:#c3cad1}
-@media (max-width:900px){.area-grid{grid-template-columns:1fr}}
-
-/* ---------- Für wen ---------- */
-.who{padding-block:clamp(70px,9vw,130px);background:var(--ink-2);border-block:1px solid var(--line)}
-.who-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line);margin-top:48px}
-.who-grid>div{border-right:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 24px 30px;min-width:0;position:relative;overflow:hidden;transition:background .35s}
-.who-grid>div::after{content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;background:var(--ironbow);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.7,0,.2,1)}
-.who-grid>div:hover{background:var(--ink-3)}
-.who-grid>div:hover::after{transform:none}
-.who-grid h3{font-size:30px;margin-bottom:10px}
-.who-grid p{margin:0;color:#c3cad1;font-size:15px}
-@media (max-width:1020px){.who-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (max-width:540px){.who-grid{grid-template-columns:1fr}}
-
-/* ---------- FAQ ---------- */
-.faq{padding-block:clamp(80px,10vw,150px)}
-.faq-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.6fr);gap:clamp(32px,6vw,90px)}
-.faq h2{font-size:clamp(52px,7vw,116px);position:sticky;top:120px}
-.faq details{border-bottom:1px solid var(--line)}
-.faq details:first-child{border-top:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;font-family:var(--f-display);font-weight:700;font-size:clamp(24px,2.4vw,32px);text-transform:uppercase;line-height:1.05}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";flex:none;width:42px;height:42px;display:grid;place-items:center;border:1.5px solid var(--line);font-family:var(--f-body);font-weight:400;font-size:24px;transition:transform .3s,background .3s,color .3s}
-.faq details[open] summary::after{transform:rotate(45deg);background:var(--hot);color:var(--ink);border-color:var(--hot)}
-.faq details p{margin:0 0 28px;color:#c3cad1;max-width:62ch}
-@media (max-width:860px){.faq-grid{grid-template-columns:1fr}.faq h2{position:static}}
-
-/* ---------- CTA / Kontakt ---------- */
-.cta{padding-block:clamp(90px,12vw,180px) clamp(70px,8vw,120px);overflow:hidden;isolation:isolate;border-top:1px solid var(--line)}
-.cta::before{content:"";position:absolute;inset:auto -10% -40% -10%;height:80%;background:radial-gradient(ellipse at 50% 100%,rgba(255,90,10,.35),rgba(154,18,131,.18) 40%,transparent 70%);z-index:-1;pointer-events:none}
-.cta .big{font-size:clamp(64px,15vw,260px);line-height:.82}
-.cta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);gap:clamp(32px,6vw,90px);margin-top:64px;align-items:start}
-.cta-info p{color:#c3cad1;margin-top:0}
-.contact-lines{display:grid;gap:0;margin-top:28px;border-top:1px solid var(--line)}
-.contact-lines div{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:18px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
-.contact-lines .mono{color:var(--mute)}
-.contact-lines a,.contact-lines strong{font-family:var(--f-display);font-weight:700;font-size:26px;text-transform:uppercase;text-decoration:none;letter-spacing:.01em}
-.contact-lines a:hover{color:var(--hot)}
-form{display:grid;grid-template-columns:1fr 1fr;gap:16px;background:var(--ink-2);border:1px solid var(--line);padding:clamp(20px,3vw,36px)}
-form .full{grid-column:1/-1}
-label{display:grid;gap:8px;font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute)}
-input,select,textarea{font:inherit;font-family:var(--f-body);font-size:16px;letter-spacing:0;text-transform:none;color:var(--fg);background:var(--ink);border:1px solid var(--line);padding:14px 14px;border-radius:0;width:100%;transition:border-color .2s}
-input:focus,select:focus,textarea:focus{outline:none;border-color:var(--hot)}
-textarea{min-height:120px;resize:vertical}
-fieldset{border:0;padding:0;margin:0}
-legend{font-family:var(--f-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
-.chips{display:flex;flex-wrap:wrap;gap:8px}
-.chips label{display:block;cursor:pointer}
-.chips input{position:absolute;opacity:0;width:1px;height:1px}
-.chips span{display:block;padding:10px 14px;border:1px solid var(--line);font-family:var(--f-mono);font-size:12px;letter-spacing:.06em;color:var(--fg);transition:all .2s}
-.chips input:checked+span{background:var(--hot);color:var(--ink);border-color:var(--hot)}
-.chips input:focus-visible+span{outline:2px solid var(--hot);outline-offset:2px}
-.form-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
-.form-foot small{color:var(--mute);font-size:13px;max-width:36ch}
-.form-msg{grid-column:1/-1;padding:14px 16px;border-left:3px solid var(--hot);background:rgba(255,194,26,.07);font-size:15px}
-@media (max-width:900px){.cta-grid{grid-template-columns:1fr}}
-@media (max-width:540px){form{grid-template-columns:1fr}}
-
-/* ---------- Footer ---------- */
-footer{border-top:1px solid var(--line);padding-block:40px calc(40px + env(safe-area-inset-bottom,0px))}
-footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
-footer nav{display:flex;gap:24px;flex-wrap:wrap}
-footer a{text-decoration:none;color:var(--mute)}
-footer a:hover{color:var(--fg)}
-footer .mono{color:var(--mute)}
-
-/* ---------- Cursor ---------- */
-.cursor{position:fixed;left:0;top:0;z-index:90;pointer-events:none;width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid var(--hot);transition:width .25s,height .25s,margin .25s,border-color .25s;mix-blend-mode:difference;display:none}
-.cursor::before,.cursor::after{content:"";position:absolute;background:var(--hot)}
-.cursor::before{left:50%;top:-8px;width:1.5px;height:8px}
-.cursor::after{top:50%;left:-8px;height:1.5px;width:8px}
-.cursor.big{width:70px;height:70px;margin:-35px 0 0 -35px}
-@media (pointer:fine){.cursor{display:block}}
-
-.reveal{will-change:transform}
-@media (prefers-reduced-motion:reduce){
-  *{animation:none!important;transition:none!important}
-  html{scroll-behavior:auto}
-  .cursor{display:none!important}
-}
-</style>
+</script>
 </head>
 <body>
 
@@ -340,29 +246,29 @@ footer .mono{color:var(--mute)}
   </div>
 </div>
 
+<a class="skip" href="#main">Zum Inhalt springen</a>
 <div class="cursor" aria-hidden="true"></div>
 
 <!-- Navigation -->
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="logo" href="#top" aria-label="Inspekdrohne Startseite">
-      <!-- Original-Logo: assets/logo.png ablegen. Solange es fehlt, erscheint die Wortmarke. -->
-      <img src="assets/logo.png" alt="Inspekdrohne" onerror="this.remove()">
-      <span class="wm">Inspek<span>drohne</span></span>
+    <a class="logo" href="/" aria-label="Inspekdrohne – zur Startseite">
+      <img src="/assets/img/logo.svg" alt="Inspekdrohne" width="113" height="58">
     </a>
-    <ul id="menu">
+    <nav aria-label="Hauptnavigation"><ul id="menu">
       <li><a href="#leistungen">Leistungen</a></li>
       <li><a href="#waermebild">Wärmebild</a></li>
       <li><a href="#ablauf">Ablauf</a></li>
       <li><a href="#gebiet">Einsatzgebiet</a></li>
       <li><a href="#faq">FAQ</a></li>
-    </ul>
+      <li><a href="#kontakt">Kontakt</a></li>
+    </ul></nav>
     <a class="btn cta-top" href="#kontakt">Flug anfragen <span class="arr">→</span></a>
     <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
   </div>
 </header>
 
-<main id="top">
+<main id="main">
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -383,15 +289,15 @@ footer .mono{color:var(--mute)}
   <div class="wrap hero-inner">
     <p class="eyebrow">Drohneninspektion · Thermografie · Vermessung</p>
     <h1 aria-label="Wir sehen, was andere übersehen.">
-      <span class="ln"><span>Wir sehen,</span></span>
+      <span class="ln"><span>Wir sehen<span class="cm">,</span></span></span>
       <span class="ln"><span>was andere</span></span>
       <span class="ln"><span class="heat-text">übersehen.</span></span>
     </h1>
     <div class="hero-sub">
-      <p>Dächer, Fassaden, Solar- und Industrieanlagen: Wir fliegen hin, messen, filmen und zeigen Ihnen im Wärmebild, wo Energie verloren geht. <strong>Ohne Gerüst. Ohne Hubsteiger. Ohne Risiko.</strong> In Hockenheim, Mannheim und im ganzen Rhein-Neckar-Kreis.</p>
+      <p>Dächer, Fassaden, Solar- und Industrieanlagen: Wir fliegen hin, messen, filmen und zeigen Ihnen im Wärmebild, wo Energie verloren geht. <strong>Ohne Gerüst. Ohne Hubsteiger. Ohne Risiko.</strong> Aus Neulußheim für Hockenheim, Mannheim und den ganzen Rhein-Neckar-Kreis.</p>
       <div class="hero-cta">
         <a class="btn" href="#kontakt">Inspektion anfragen <span class="arr">→</span></a>
-        <a class="btn ghost" href="#waermebild">Wärmebild ansehen</a>
+        <a class="btn ghost" href="tel:+4962053646528">06205 3646528</a>
       </div>
     </div>
   </div>
@@ -413,12 +319,12 @@ footer .mono{color:var(--mute)}
       <p>Eine Inspektion aus der Luft liefert objektive, hochauflösende Bilder, die Sie beliebig oft ansehen, prüfen, auswerten und dokumentieren können. Das macht die Arbeit einfacher, schneller und deutlich günstiger.</p>
     </div>
     <div class="cmp reveal" role="table" aria-label="Vergleich klassische Inspektion und Drohneninspektion">
-      <div class="h lab" role="columnheader">&nbsp;</div><div class="h" role="columnheader">Klassisch</div><div class="h us" role="columnheader">Mit Inspekdrohne</div>
-      <div class="k" role="rowheader">Vorbereitung</div><div class="old">Gerüst oder Hubsteiger bestellen, aufbauen, absichern</div><div class="new">Flugplanung, Start vom Boden, fertig</div>
-      <div class="k" role="rowheader">Sicherheit</div><div class="old">Menschen auf Dach, Mast oder Anlage</div><div class="new">Niemand muss nach oben</div>
-      <div class="k" role="rowheader">Betrieb</div><div class="old">Oft Abschaltung oder Sperrung nötig</div><div class="new">Anlage läuft weiter, Wärmebild braucht sogar Betrieb</div>
-      <div class="k" role="rowheader">Ergebnis</div><div class="old">Einzelfotos, Notizen, Erinnerung</div><div class="new">Luftbilder, Wärmebilder, Aufmaß und Bericht</div>
-      <div class="k" role="rowheader">Unsichtbares</div><div class="old">Bleibt unsichtbar</div><div class="new">Wärmebrücken und Hotspots werden sichtbar</div>
+      <div role="row"><div class="h lab" role="columnheader"><span class="sr-only">Kriterium</span></div><div class="h" role="columnheader">Klassisch</div><div class="h us" role="columnheader">Mit Inspekdrohne</div></div>
+      <div role="row"><div class="k" role="rowheader">Vorbereitung</div><div class="old" role="cell">Gerüst oder Hubsteiger bestellen, aufbauen, absichern</div><div class="new" role="cell">Flugplanung, Start vom Boden, fertig</div></div>
+      <div role="row"><div class="k" role="rowheader">Sicherheit</div><div class="old" role="cell">Menschen auf Dach, Mast oder Anlage</div><div class="new" role="cell">Niemand muss nach oben</div></div>
+      <div role="row"><div class="k" role="rowheader">Betrieb</div><div class="old" role="cell">Oft Abschaltung oder Sperrung nötig</div><div class="new" role="cell">Anlage läuft weiter, Wärmebild braucht sogar Betrieb</div></div>
+      <div role="row"><div class="k" role="rowheader">Ergebnis</div><div class="old" role="cell">Einzelfotos, Notizen, Erinnerung</div><div class="new" role="cell">Luftbilder, Wärmebilder, Aufmaß und Bericht</div></div>
+      <div role="row"><div class="k" role="rowheader">Unsichtbares</div><div class="old" role="cell">Bleibt unsichtbar</div><div class="new" role="cell">Wärmebrücken und Hotspots werden sichtbar</div></div>
     </div>
   </div>
 </section>
@@ -437,7 +343,7 @@ footer .mono{color:var(--mute)}
       <article class="svc reveal">
         <span class="code">IR · Thermo</span>
         <h3>Thermografie</h3>
-        <div class="desc"><p>Radiometrische Wärmebilder aus der Luft zeigen Wärmebrücken, feuchte Dämmung und defekte Solarmodule, bevor daraus teure Schäden werden.</p><div class="tags"><span>Dach</span><span>Fassade</span><span>PV-Hotspots</span><span>Fernwärme</span></div></div>
+        <div class="desc"><p>Wärmebilder aus der Luft zeigen Wärmebrücken, feuchte Dämmung und defekte Solarmodule, bevor daraus teure Schäden werden.</p><div class="tags"><span>Dach</span><span>Fassade</span><span>PV-Hotspots</span><span>Fernwärme</span></div></div>
         <a class="go" href="#kontakt" aria-label="Thermografie anfragen">↗</a>
       </article>
       <article class="svc reveal">
@@ -465,7 +371,7 @@ footer .mono{color:var(--mute)}
         <a class="go" href="#kontakt" aria-label="Baustellendokumentation anfragen">↗</a>
       </article>
       <article class="svc reveal">
-        <span class="code">4K · Luftbild</span>
+        <span class="code">FOTO · Video</span>
         <h3>Luftbilder &amp; Luftaufnahmen</h3>
         <div class="desc"><p>Fotos und Videos aus der Vogelperspektive für Immobilien, Unternehmen, Gemeinden und Events. Bilder, die man nicht wegklickt.</p><div class="tags"><span>Immobilien</span><span>Image-Film</span><span>Events</span><span>Wald &amp; Flächen</span></div></div>
         <a class="go" href="#kontakt" aria-label="Luftaufnahmen anfragen">↗</a>
@@ -500,8 +406,8 @@ footer .mono{color:var(--mute)}
         </div>
         <div class="handle" aria-hidden="true"></div>
         <span class="tag a">RGB</span><span class="tag b">IR · IRONBOW</span>
-        <label class="sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)" for="cmp-range">Vergleich Tageslicht und Wärmebild</label>
-        <input type="range" id="cmp-range" min="0" max="100" value="24" aria-label="Vergleich Tageslicht und Wärmebild">
+        <label class="sr-only" for="cmp-range">Regler: links Tageslicht, rechts Wärmebild</label>
+        <input type="range" id="cmp-range" min="0" max="100" value="24" aria-valuetext="Wärmebild-Anteil">
       </div>
       <div class="compare-cap mono"><span>Beispieldarstellung · Einfamilienhaus, Winter</span><span>Außen 2 °C · Innen 21 °C</span></div>
     </div>
@@ -519,9 +425,9 @@ footer .mono{color:var(--mute)}
         <path id="fp" d="M5 70 C 120 70, 150 12, 250 12 S 380 60, 500 40 S 640 4, 750 22 S 900 66, 995 18" fill="none" stroke="url(#pg)" stroke-width="3" stroke-dasharray="8 8"/>
         <circle id="dronedot" r="7" fill="#fff6d8" cx="5" cy="70"/>
       </svg>
-      <div class="step reveal"><span class="n heat-text">01</span><h3>Anfrage</h3><p>Sie schildern Objekt, Ort und Ziel. Wir melden uns schnell mit Rückfragen und einem klaren Angebot.</p><span class="dur mono">Formular oder Anruf</span></div>
-      <div class="step reveal"><span class="n heat-text">02</span><h3>Flugplanung</h3><p>Wir prüfen Luftraum und Auflagen, klären Anmeldungen und planen Flugroute, Höhe und Zeitfenster passend zum Wetter.</p><span class="dur mono">Genehmigungen inklusive</span></div>
-      <div class="step reveal"><span class="n heat-text">03</span><h3>Befliegung</h3><p>Vor Ort starten wir vom Boden. Tageslicht, Wärmebild oder Vermessung, je nach Auftrag. Sie können live zusehen.</p><span class="dur mono">Oft in unter einer Stunde</span></div>
+      <div class="step reveal"><span class="n heat-text">01</span><h3>Anfrage</h3><p>Sie schildern Objekt, Ort und Ziel. Wir melden uns schnell mit Rückfragen und einem klaren Angebot.</p><span class="dur mono">Formular, Mail oder Anruf</span></div>
+      <div class="step reveal"><span class="n heat-text">02</span><h3>Flugplanung</h3><p>Wir prüfen Luftraum und Auflagen, kümmern uns um nötige Anmeldungen und planen Flugroute, Höhe und Zeitfenster passend zum Wetter.</p><span class="dur mono">Luftrecht geklärt</span></div>
+      <div class="step reveal"><span class="n heat-text">03</span><h3>Befliegung</h3><p>Vor Ort starten wir vom Boden. Tageslicht, Wärmebild oder Vermessung, je nach Auftrag. Auf Wunsch sind Sie dabei.</p><span class="dur mono">Termin nach Absprache</span></div>
       <div class="step reveal"><span class="n heat-text">04</span><h3>Auswertung</h3><p>Sie erhalten aufbereitete Bilder, Videos, Wärmebildanalyse oder Aufmaß, dazu einen verständlichen Bericht.</p><span class="dur mono">Digital · teilbar · archivierbar</span></div>
     </div>
   </div>
@@ -530,13 +436,14 @@ footer .mono{color:var(--mute)}
 <!-- EINSATZGEBIET -->
 <section class="area" id="gebiet">
   <div class="wrap area-grid">
-    <div class="radar reveal"><canvas id="radar" aria-label="Radarkarte des Einsatzgebiets rund um Hockenheim" role="img"></canvas></div>
+    <div class="radar reveal"><canvas id="radar" aria-label="Radarkarte: Einsatzgebiet rund um Neulußheim mit Hockenheim, Mannheim, Heidelberg, Speyer und weiteren Orten im Umkreis von etwa 30 Kilometern" role="img"></canvas></div>
     <div>
       <p class="eyebrow">Einsatzgebiet</p>
       <h2>Rhein-Neckar <span class="heat-text">im Visier.</span></h2>
-      <p>Unsere Basis ist Hockenheim. Von hier aus sind wir schnell in Mannheim, Heidelberg, Speyer und im ganzen Rhein-Neckar-Kreis. Größere Projekte übernehmen wir auch darüber hinaus.</p>
+      <p>Unsere Basis ist Neulußheim, direkt bei Hockenheim. Von hier aus sind wir schnell in Mannheim, Heidelberg, Speyer und im ganzen Rhein-Neckar-Kreis. Größere Projekte übernehmen wir auch darüber hinaus.</p>
       <ul class="cities" id="cities">
-        <li class="base" data-c="Hockenheim">Hockenheim</li>
+        <li class="base">Neulußheim</li>
+        <li data-c="Hockenheim">Hockenheim</li>
         <li data-c="Mannheim">Mannheim</li>
         <li data-c="Heidelberg">Heidelberg</li>
         <li data-c="Schwetzingen">Schwetzingen</li>
@@ -570,17 +477,30 @@ footer .mono{color:var(--mute)}
   </div>
 </section>
 
+<!-- ÜBER UNS -->
+<section class="statement" id="ueber-uns" style="padding-block:clamp(80px,10vw,150px)">
+  <div class="wrap">
+    <div class="lead" style="margin-bottom:0">
+      <div><p class="eyebrow">Über uns</p><h2 style="margin-top:18px">Know-how. Erfahrung. <span class="heat-text">Leidenschaft.</span></h2></div>
+      <div>
+        <p>Hinter Inspekdrohne steht Sezer Özgüden aus Neulußheim. Wir liefern nicht nur beeindruckende Bilder aus der Luft, sondern verlässliche Vermessungen, Schadensanalysen und Baustellenüberwachung.</p>
+        <p style="margin-top:14px">Mit uns buchen Sie eine kompetente Draufsicht auf Gebäude, Anlagen und Waldflächen und dazu das Fachwissen für Vor- und Nachbereitung der Dokumentation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- FAQ -->
 <section class="faq" id="faq">
   <div class="wrap faq-grid">
     <div><p class="eyebrow">Fragen</p><h2 style="margin-top:18px">Kurz <span class="heat-text">geklärt.</span></h2></div>
     <div>
-      <details open><summary>Brauche ich eine Genehmigung?</summary><p>Nein, darum kümmern wir uns. Wir prüfen Luftraum, Auflagen und notwendige Anmeldungen und planen den Flug nach geltendem Luftrecht. Sie müssen uns nur Zugang zum Objekt ermöglichen.</p></details>
-      <details><summary>Was kostet eine Drohneninspektion?</summary><p>Das hängt von Objekt, Größe, Leistung und Aufwand der Auswertung ab. Sie bekommen nach Ihrer Anfrage ein festes Angebot, ohne versteckte Kosten. Im Vergleich zu Gerüst oder Hubsteiger sparen Sie in der Regel deutlich.</p></details>
+      <details open><summary>Brauche ich eine Genehmigung?</summary><p>In der Regel nicht, darum kümmern wir uns. Wir prüfen Luftraum, Auflagen und notwendige Anmeldungen und planen den Flug nach geltendem Luftrecht. Sie sorgen nur dafür, dass wir an das Objekt herankommen.</p></details>
+      <details><summary>Was kostet eine Drohneninspektion?</summary><p>Das hängt von Objekt, Größe, Leistung und Aufwand der Auswertung ab. Sie bekommen nach Ihrer Anfrage ein verbindliches Angebot. Im Vergleich zu Gerüst oder Hubsteiger ist eine Befliegung meist deutlich günstiger.</p></details>
       <details><summary>Wann ist die beste Zeit für Thermografie?</summary><p>Gebäudethermografie funktioniert am besten in der kalten Jahreszeit mit großem Temperaturunterschied zwischen innen und außen, idealerweise früh morgens. Photovoltaik prüfen wir dagegen bei Sonne und im laufenden Betrieb.</p></details>
       <details><summary>Was bekomme ich am Ende?</summary><p>Je nach Auftrag hochauflösende Fotos und Videos, Wärmebilder mit Temperaturwerten, Aufmaß oder Orthofoto und einen verständlichen Bericht mit markierten Befunden. Alles digital, zum Weitergeben an Handwerker, Gutachter oder Versicherung.</p></details>
       <details><summary>Und bei schlechtem Wetter?</summary><p>Bei starkem Wind, Regen oder Nebel fliegen wir nicht, weil die Datenqualität leidet. Wir verschieben kurzfristig auf das nächste passende Zeitfenster.</p></details>
-      <details><summary>Was ist mit Datenschutz und Nachbarn?</summary><p>Wir fliegen gezielt Ihr Objekt an, nehmen keine unbeteiligten Personen auf und behandeln alle Aufnahmen vertraulich. Die Daten gehören Ihnen.</p></details>
+      <details><summary>Was ist mit Datenschutz und Nachbarn?</summary><p>Wir fliegen gezielt Ihr Objekt an, vermeiden Aufnahmen unbeteiligter Personen und behandeln alle Aufnahmen vertraulich. Mehr dazu in der <a href="/datenschutz" style="color:var(--hot)">Datenschutzerklärung</a>.</p></details>
     </div>
   </div>
 </section>
@@ -594,15 +514,17 @@ footer .mono{color:var(--mute)}
       <div class="cta-info">
         <p>Beschreiben Sie kurz Ihr Objekt. Wir melden uns mit einer Einschätzung und einem klaren Angebot. Unverbindlich und kostenlos.</p>
         <div class="contact-lines">
-          <div><span class="mono">E-Mail</span><a href="mailto:info@inspekdrohne.de" id="c-mail">info@inspekdrohne.de</a></div>
-          <div><span class="mono">Basis</span><strong>Hockenheim</strong></div>
+          <div><span class="mono">Telefon</span><a href="tel:+4962053646528">06205 3646528</a></div>
+          <div><span class="mono">Mobil</span><a href="tel:+4917622678053">0176 22678053</a></div>
+          <div><span class="mono">E-Mail</span><a class="small" href="mailto:info@inspekdrohne.de">info@inspekdrohne.de</a></div>
         </div>
+        <p class="owner"><strong>Inspekdrohne · Sezer Özgüden</strong><br>Am Sandbuckel 6, 68809 Neulußheim</p>
       </div>
-      <form id="form" novalidate>
-        <label>Name<input id="f-name" name="name" autocomplete="name" required placeholder="Max Mustermann"></label>
-        <label>E-Mail oder Telefon<input id="f-contact" name="contact" autocomplete="email" required placeholder="max@beispiel.de"></label>
+      <form id="form" novalidate aria-describedby="form-msg">
+        <label>Name *<input id="f-name" name="name" autocomplete="name" required></label>
+        <label>E-Mail oder Telefon *<input id="f-contact" name="contact" autocomplete="email" inputmode="email" required></label>
         <label>Objekt<select id="f-obj" name="objekt"><option>Einfamilienhaus</option><option>Mehrfamilienhaus</option><option>Gewerbe / Halle</option><option>PV-Anlage</option><option>Windkraftanlage</option><option>Baustelle</option><option>Sonstiges</option></select></label>
-        <label>Ort<input id="f-ort" name="ort" placeholder="z. B. Mannheim"></label>
+        <label>Ort des Objekts<input id="f-ort" name="ort" autocomplete="address-level2"></label>
         <fieldset class="full"><legend>Was brauchen Sie?</legend>
           <div class="chips">
             <label><input type="checkbox" id="f-l1" name="leistung" value="Thermografie" checked><span>Thermografie</span></label>
@@ -613,11 +535,14 @@ footer .mono{color:var(--mute)}
           </div>
         </fieldset>
         <label class="full">Nachricht<textarea id="f-msg" name="nachricht" placeholder="Worum geht es? Gibt es einen Termin oder einen konkreten Schaden?"></textarea></label>
+        <div class="hp" aria-hidden="true"><label>Website<input id="f-website" name="website" tabindex="-1" autocomplete="off"></label></div>
+        <label class="full consent" style="display:flex;gap:10px;align-items:flex-start;text-transform:none;letter-spacing:0;font-family:var(--f-body);font-size:14px;color:#c3cad1"><input type="checkbox" id="f-consent" name="consent" required style="width:20px;height:20px;flex:none;margin-top:2px"> <span>Ich habe die <a href="/datenschutz" style="color:var(--hot)">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage verwendet werden. *</span></label>
         <div class="full form-foot">
-          <small>Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß <a href="https://inspekdrohne.de/datenschutzrichtlinien/">Datenschutz</a> zu.</small>
+          <small>* Pflichtfelder. Ohne Anmeldung, unverbindlich und kostenlos.</small>
           <button class="btn" type="submit">Anfrage senden <span class="arr">→</span></button>
         </div>
-        <div class="form-msg" id="form-msg" hidden></div>
+        <div class="form-msg" id="form-msg" role="status" aria-live="polite" hidden></div>
+        <noscript><p class="full form-msg">Das Formular braucht JavaScript. Schreiben Sie uns einfach an <a href="mailto:info@inspekdrohne.de">info@inspekdrohne.de</a> oder rufen Sie an: 06205 3646528.</p></noscript>
       </form>
     </div>
   </div>
@@ -626,289 +551,22 @@ footer .mono{color:var(--mute)}
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="#top"><span class="wm">Inspek<span>drohne</span></span></a>
-    <span class="mono">Drohnenservice · Hockenheim · Rhein-Neckar</span>
-    <nav><a href="https://inspekdrohne.de/uber-uns/">Über uns</a><a href="https://inspekdrohne.de/impressum/">Impressum</a><a href="https://inspekdrohne.de/datenschutzrichtlinien/">Datenschutz</a></nav>
+    <div class="cols">
+      <a class="flogo" href="/" aria-label="Inspekdrohne – zur Startseite"><img src="/assets/img/logo.svg" alt="Inspekdrohne" width="125" height="64" loading="lazy"></a>
+      <address>Inspekdrohne · Sezer Özgüden<br>Am Sandbuckel 6, 68809 Neulußheim<br><a href="tel:+4962053646528">06205 3646528</a> · <a href="mailto:info@inspekdrohne.de">info@inspekdrohne.de</a></address>
+    </div>
+    <div class="legal">
+      <small>© <span id="y">2026</span> Inspekdrohne · Drohnenservice im Rhein-Neckar-Kreis</small>
+      <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/agb">AGB</a></nav>
+    </div>
   </div>
 </footer>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>
-(()=>{
-const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
-if(window.gsap&&window.ScrollTrigger)gsap.registerPlugin(ScrollTrigger);
-const $ = (s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+<nav class="mobile-cta" aria-label="Schnellkontakt"><a href="tel:+4962053646528">Anrufen</a><a class="pri" href="#kontakt">Flug anfragen</a></nav>
 
-/* ---------- Ironbow-Farbskala ---------- */
-const STOPS=[[0,[18,5,46]],[.18,[58,15,122]],[.38,[154,18,131]],[.58,[224,50,30]],[.74,[255,125,0]],[.88,[255,194,26]],[1,[255,246,216]]];
-const LUT=new Uint8ClampedArray(256*3);
-for(let i=0;i<256;i++){const t=i/255;let a=STOPS[0],b=STOPS[STOPS.length-1];for(let k=0;k<STOPS.length-1;k++){if(t>=STOPS[k][0]&&t<=STOPS[k+1][0]){a=STOPS[k];b=STOPS[k+1];break}}const f=(t-a[0])/((b[0]-a[0])||1);for(let c=0;c<3;c++)LUT[i*3+c]=a[1][c]+(b[1][c]-a[1][c])*f}
-const idx=(T,a,b)=>Math.max(0,Math.min(255,Math.round((T-a)/(b-a)*255)));
 
-/* Zufall mit Seed, damit jede Karte gleich aussieht */
-function rng(seed){return()=>{seed|=0;seed=seed+0x6D2B79F5|0;let t=Math.imul(seed^seed>>>15,1|seed);t=t+Math.imul(t^t>>>7,61|t)^t;return((t^t>>>14)>>>0)/4294967296}}
-
-/* ---------- Heatfield-Hilfen ---------- */
-function Field(w,h,base){const f=new Float32Array(w*h).fill(base);return{w,h,f,
-  rect(x,y,rw,rh,T,mode){x|=0;y|=0;for(let j=Math.max(0,y);j<Math.min(h,y+rh);j++)for(let i=Math.max(0,x);i<Math.min(w,x+rw);i++){const k=j*w+i;f[k]=mode==='max'?Math.max(f[k],T):T}},
-  spot(cx,cy,r,dT){const r2=r*r;for(let j=Math.max(0,cy-r*2|0);j<Math.min(h,cy+r*2);j++)for(let i=Math.max(0,cx-r*2|0);i<Math.min(w,cx+r*2);i++){const d=(i-cx)**2+(j-cy)**2;f[j*w+i]+=dT*Math.exp(-d/r2)}},
-  noise(rand,amp){for(let k=0;k<f.length;k++)f[k]+=(rand()-.5)*amp},
-  toCanvas(a,b){const c=document.createElement('canvas');c.width=w;c.height=h;const x=c.getContext('2d');const im=x.createImageData(w,h);for(let k=0;k<f.length;k++){const n=idx(f[k],a,b)*3;im.data[k*4]=LUT[n];im.data[k*4+1]=LUT[n+1];im.data[k*4+2]=LUT[n+2];im.data[k*4+3]=255}x.putImageData(im,0,0);return c},
-  at(x,y){x=((x%w)+w)%w|0;y=((y%h)+h)%h|0;return f[y*w+x]}
-}}
-
-/* ---------- HERO: Wärmebild-Überflug einer Siedlung ---------- */
-function buildCity(){
-  const S=512, B=128, R=rng(7);
-  const F=Field(S,S,6.5);
-  F.noise(R,1.2);
-  // Wiesen/Gärten mit leichter Struktur
-  for(let n=0;n<90;n++)F.spot(R()*S,R()*S,6+R()*14,-1.5+R()*2);
-  // Straßen (periodisch, damit die Kachel nahtlos ist)
-  for(let s=0;s<S;s+=B){F.rect(s,0,12,S,11.5);F.rect(0,s,S,12,11.5)}
-  // Autos
-  for(let n=0;n<26;n++){const onX=R()<.5,lane=(R()*4|0)*B+3+(R()*5|0),p=R()*S|0;onX?F.rect(p,lane,11,5,24+R()*10):F.rect(lane,p,5,11,24+R()*10)}
-  // Häuser je Block
-  for(let by=0;by<S;by+=B)for(let bx=0;bx<S;bx+=B){
-    const inner=B-12, ox=bx+12, oy=by+12;
-    const cols=2, rows=2;
-    for(let r=0;r<rows;r++)for(let c=0;c<cols;c++){
-      if(R()<.12){ // Baum-Gruppe statt Haus
-        for(let t=0;t<4;t++)F.spot(ox+c*inner/2+10+R()*36,oy+r*inner/2+10+R()*36,6+R()*5,2.2);continue}
-      const cw=inner/2, ch=inner/2;
-      const hw=24+R()*18|0, hh=20+R()*16|0;
-      const hx=ox+c*cw+(cw-hw)/2+(R()-.5)*6|0, hy=oy+r*ch+(ch-hh)/2+(R()-.5)*6|0;
-      const roof=2.5+R()*4, vert=R()<.5;
-      // zwei Dachflächen mit First
-      if(vert){F.rect(hx,hy,hw/2|0,hh,roof);F.rect(hx+(hw/2|0),hy,hw-(hw/2|0),hh,roof+1.4);F.rect(hx+(hw/2|0)-1,hy,2,hh,roof+5)}
-      else{F.rect(hx,hy,hw,hh/2|0,roof);F.rect(hx,hy+(hh/2|0),hw,hh-(hh/2|0),roof+1.4);F.rect(hx,hy+(hh/2|0)-1,hw,2,roof+5)}
-      // Traufe/Umrandung (warme Wand unten)
-      F.rect(hx-1,hy-1,hw+2,1,12,'max');F.rect(hx-1,hy+hh,hw+2,1,12,'max');F.rect(hx-1,hy,1,hh,12,'max');F.rect(hx+hw,hy,1,hh,12,'max');
-      // Kamin
-      if(R()<.75){const kx=hx+4+R()*(hw-8)|0,ky=hy+3+R()*(hh-8)|0;F.rect(kx,ky,4,4,44+R()*14)}
-      // Dachfenster mit Wärmeverlust
-      if(R()<.6){const wx=hx+3+R()*(hw-9)|0,wy=hy+3+R()*(hh-8)|0;F.rect(wx,wy,5,4,16+R()*6);F.spot(wx+2,wy+2,3.5,5)}
-      // Wärmeleck in Dämmung
-      if(R()<.45)F.spot(hx+R()*hw,hy+R()*hh,4+R()*5,7+R()*9);
-      // PV-Feld mit Hotspot
-      if(R()<.3){const pw=Math.min(hw-6,18),ph=Math.min(hh/2-3,9)|0,px=hx+3,py=hy+2;for(let a=0;a<pw;a+=4)for(let b=0;b<ph;b+=4)F.rect(px+a,py+b,3,3,26+R()*4);if(R()<.7)F.rect(px+(R()*(pw/4)|0)*4,py,3,3,68)}
-    }
-  }
-  return F;
-}
-
-function hero(){
-  const cv=$('#thermal'), ctx=cv.getContext('2d');
-  const F=buildCity(), S=F.w;
-  // 3x3 kacheln, weichzeichnen, Mitte ausschneiden → nahtlos
-  const raw=F.toCanvas(-2,36);
-  const big=document.createElement('canvas');big.width=S*3;big.height=S*3;const bx=big.getContext('2d');
-  for(let j=0;j<3;j++)for(let i=0;i<3;i++)bx.drawImage(raw,i*S,j*S);
-  const tile=document.createElement('canvas');tile.width=S;tile.height=S;const tx=tile.getContext('2d');
-  tx.filter='blur(1.4px)';tx.drawImage(big,-S,-S);tx.filter='none';
-  let W,H,dpr,scale;
-  function size(){dpr=Math.min(devicePixelRatio||1,2);W=cv.clientWidth;H=cv.clientHeight;cv.width=W*dpr|0;cv.height=H*dpr|0;scale=Math.max(W,H)/380}
-  size();addEventListener('resize',size);
-  let ox=40,oy=60,t0=performance.now(),mx=-1,my=-1,visible=true,scanY=0;
-  const probe=$('#probe'),pv=$('#probe-val'),alt=$('#t-alt'),spd=$('#t-spd');
-  const hero=$('#hero');
-  hero.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top;probe.style.transform=`translate(${mx}px,${my}px)`;probe.classList.add('on')});
-  hero.addEventListener('pointerleave',()=>{probe.classList.remove('on');mx=-1});
-  new IntersectionObserver(es=>{visible=es[0].isIntersecting}).observe(hero);
-  function draw(now){
-    const dt=Math.min(.05,(now-t0)/1000);t0=now;
-    if(!RM){ox+=dt*7.5;oy+=dt*4.2}
-    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.imageSmoothingEnabled=true;
-    const ts=S*scale;
-    const sx=-((ox*scale)%ts), sy=-((oy*scale)%ts);
-    for(let y=sy;y<H;y+=ts)for(let x=sx;x<W;x+=ts)ctx.drawImage(tile,x,y,ts,ts);
-    // Scanlinie
-    if(!RM){scanY=(scanY+dt*H*.22)%(H+120);const g=ctx.createLinearGradient(0,scanY-120,0,scanY);g.addColorStop(0,'rgba(255,246,216,0)');g.addColorStop(1,'rgba(255,246,216,.13)');ctx.fillStyle=g;ctx.fillRect(0,scanY-120,W,120);ctx.fillStyle='rgba(255,246,216,.5)';ctx.fillRect(0,scanY,W,1)}
-    if(mx>=0){const T=F.at(ox+mx/scale,oy+my/scale);pv.textContent=T.toFixed(1).replace('.',',')+' °C'}
-    if(!RM&&((now/400)|0)%2===0){alt.textContent=(58+Math.sin(now/1700)*1.6).toFixed(1);spd.textContent=(4.2+Math.sin(now/900)*.4).toFixed(1)}
-  }
-  function loop(now){if(visible)draw(now);requestAnimationFrame(loop)}
-  draw(performance.now());
-  if(!RM)requestAnimationFrame(loop);else addEventListener('resize',()=>draw(performance.now()));
-  if(RM){hero.addEventListener('pointermove',()=>draw(performance.now()))}
-}
-
-/* ---------- Vergleich: Dach bei Tageslicht vs. Wärmebild ---------- */
-function roofCompare(){
-  const W=600,H=350;
-  // Geometrie (in 600x350)
-  const house={x:120,y:70,w:340,h:210}; // Grundriss von oben
-  const ridge=house.y+house.h*.46;
-  const sky1={x:212,y:92,w:30,h:24}, sky2={x:340,y:92,w:30,h:24};
-  const chim={x:350,y:64,w:20,h:18};
-  const pv={x:300,y:190,cols:6,rows:3,cw:22,ch:15,gap:2};
-  const hot={c:4,r:2};
-  const gap={x:170,y:136,r:22};
-  // --- Tageslicht ---
-  const v=$('#c-vis'), vc=v.getContext('2d');v.width=W*2;v.height=H*2;vc.scale(2,2);
-  const R=rng(3);
-  vc.fillStyle='#4f6b3a';vc.fillRect(0,0,W,H);
-  for(let i=0;i<1400;i++){vc.fillStyle=`rgba(${60+R()*40|0},${90+R()*50|0},${40+R()*30|0},.5)`;vc.fillRect(R()*W,R()*H,2,2)}
-  vc.fillStyle='#b7ada0';vc.fillRect(260,280,70,70); // Weg
-  vc.fillStyle='#8f8a82';vc.fillRect(0,300,W,50); // Straße
-  vc.fillStyle='#6f6a63';for(let x=0;x<W;x+=40)vc.fillRect(x,323,22,3);
-  // Baum
-  for(let i=0;i<9;i++){vc.fillStyle=`rgba(${34+R()*20|0},${70+R()*30|0},${30+R()*15|0},.85)`;vc.beginPath();vc.arc(530+(R()-.5)*50,120+(R()-.5)*50,20+R()*16,0,7);vc.fill()}
-  // Schatten
-  vc.fillStyle='rgba(0,0,0,.28)';vc.fillRect(house.x+10,house.y+10,house.w,house.h);
-  // Dachflächen
-  const tile=(y0,y1,base)=>{vc.fillStyle=base;vc.fillRect(house.x,y0,house.w,y1-y0);for(let y=y0;y<y1;y+=7){vc.fillStyle='rgba(0,0,0,.22)';vc.fillRect(house.x,y,house.w,1.3);for(let x=house.x+((y/7|0)%2)*6;x<house.x+house.w;x+=12){vc.fillStyle='rgba(0,0,0,.14)';vc.fillRect(x,y,1,7)}}};
-  tile(house.y,ridge,'#8e3b2a');tile(ridge,house.y+house.h,'#7a3123');
-  vc.fillStyle='#5a2419';vc.fillRect(house.x,ridge-3,house.w,6); // First
-  vc.fillStyle='#9aa0a6';vc.fillRect(house.x-4,house.y-4,house.w+8,4);vc.fillRect(house.x-4,house.y+house.h,house.w+8,4); // Rinnen
-  const skyl=s=>{vc.fillStyle='#39414a';vc.fillRect(s.x,s.y,s.w,s.h);vc.fillStyle='rgba(160,190,220,.55)';vc.fillRect(s.x+3,s.y+3,s.w-6,s.h-6);vc.fillStyle='rgba(255,255,255,.35)';vc.fillRect(s.x+4,s.y+4,6,s.h-8)};
-  skyl(sky1);skyl(sky2);
-  vc.fillStyle='#5b5752';vc.fillRect(chim.x,chim.y,chim.w,chim.h);vc.fillStyle='#2b2926';vc.fillRect(chim.x+4,chim.y+4,chim.w-8,chim.h-8);
-  for(let r=0;r<pv.rows;r++)for(let c=0;c<pv.cols;c++){const x=pv.x+c*(pv.cw+pv.gap),y=pv.y+r*(pv.ch+pv.gap);vc.fillStyle='#1b2536';vc.fillRect(x,y,pv.cw,pv.ch);vc.strokeStyle='rgba(140,170,210,.35)';vc.lineWidth=.6;for(let k=1;k<4;k++){vc.beginPath();vc.moveTo(x+k*pv.cw/4,y);vc.lineTo(x+k*pv.cw/4,y+pv.ch);vc.stroke()}vc.fillStyle='rgba(255,255,255,.07)';vc.fillRect(x,y,pv.cw,3)}
-  // --- Wärmebild ---
-  const G=Field(W,H,7);const R2=rng(11);G.noise(R2,1);
-  for(let i=0;i<60;i++)G.spot(R2()*W,R2()*H,10+R2()*20,-1.2+R2()*1.6);
-  G.rect(0,300,W,50,9.5);G.rect(260,280,70,20,10.5);
-  G.spot(530,120,40,-2.5);
-  G.rect(house.x-4,house.y-4,house.w+8,house.h+8,14); // warme Wand/Traufe
-  G.rect(house.x,house.y,house.w,ridge-house.y,3.2);G.rect(house.x,ridge,house.w,house.y+house.h-ridge,4.1);
-  G.rect(house.x,ridge-3,house.w,6,9.5);
-  G.spot(house.x+house.w*.8,ridge,10,3);
-  // Wärmebrücke Dachfenster 1 stark, 2 schwach
-  G.rect(sky1.x,sky1.y,sky1.w,sky1.h,15);G.spot(sky1.x+sky1.w/2,sky1.y+sky1.h/2,20,8);
-  G.rect(sky2.x,sky2.y,sky2.w,sky2.h,12);G.spot(sky2.x+sky2.w/2,sky2.y+sky2.h/2,10,2);
-  // Dämmungs-Fehlstelle
-  G.spot(gap.x,gap.y,gap.r,9);G.spot(gap.x+8,gap.y-4,gap.r*.5,3);
-  // Kamin
-  G.rect(chim.x,chim.y,chim.w,chim.h,34);G.rect(chim.x+4,chim.y+4,chim.w-8,chim.h-8,52);G.spot(chim.x+chim.w/2,chim.y+chim.h,14,12);
-  // PV (Winter: Module etwas wärmer durch Sonne)
-  for(let r=0;r<pv.rows;r++)for(let c=0;c<pv.cols;c++){const x=pv.x+c*(pv.cw+pv.gap),y=pv.y+r*(pv.ch+pv.gap);G.rect(x,y,pv.cw,pv.ch,19+R2()*2.5)}
-  {const x=pv.x+hot.c*(pv.cw+pv.gap),y=pv.y+hot.r*(pv.ch+pv.gap);G.rect(x,y,pv.cw,pv.ch,27);G.rect(x+pv.cw*.55|0,y+4,6,6,74);G.spot(x+pv.cw*.55+3,y+7,4,12)}
-  const irRaw=G.toCanvas(0,34);
-  const ir=$('#c-ir'),ic=ir.getContext('2d');ir.width=W*2;ir.height=H*2;ic.filter='blur(2.2px)';ic.drawImage(irRaw,0,0,W*2,H*2);ic.filter='none';
-  // Scanlinien fürs IR-Gefühl
-  ic.fillStyle='rgba(0,0,0,.08)';for(let y=0;y<H*2;y+=3)ic.fillRect(0,y,W*2,1);
-  // Regler
-  const box=$('#compare'),rng_=$('#cmp-range');
-  const set=v=>box.style.setProperty('--pos',v+'%');
-  rng_.addEventListener('input',e=>set(e.target.value));
-  // Intro-Wisch, wenn sichtbar
-  if(!RM&&window.gsap){const o={v:88};gsap.to(o,{v:24,duration:1.8,ease:'power3.inOut',scrollTrigger:{trigger:box,start:'top 75%'},onUpdate:()=>{set(o.v);rng_.value=o.v}});set(88);rng_.value=88}
-}
-
-/* ---------- Radar Einsatzgebiet ---------- */
-function radar(){
-  const cv=$('#radar'),ctx=cv.getContext('2d');
-  const base={n:'Hockenheim',lat:49.322,lon:8.547};
-  // [Name, Breite, Länge, Label-Ausrichtung, Label-Versatz y]
-  const C=[['Mannheim',49.487,8.466,'l',0],['Heidelberg',49.398,8.672,'l',-8],['Schwetzingen',49.383,8.572,'l',0],['Speyer',49.317,8.431,'r',0],['Walldorf',49.306,8.642,'l',0],['Wiesloch',49.294,8.698,'l',16],['Ludwigshafen',49.477,8.445,'r',6],['Weinheim',49.550,8.667,'l',0],['Sinsheim',49.253,8.879,'r',-10]];
-  const km=(la,lo)=>[(lo-base.lon)*72.6,-(la-base.lat)*111.2]; // km Ost/Süd
-  const RANGE=32; // km bis Rand
-  let S,dpr,hl=null;
-  const css=getComputedStyle(document.documentElement);
-  const col={fg:css.getPropertyValue('--fg').trim(),mute:css.getPropertyValue('--mute').trim(),hot:css.getPropertyValue('--hot').trim(),heat:css.getPropertyValue('--heat').trim()};
-  function size(){dpr=Math.min(devicePixelRatio||1,2);S=cv.clientWidth;cv.width=S*dpr;cv.height=S*dpr}
-  size();addEventListener('resize',size);
-  $$('#cities li').forEach(li=>{li.addEventListener('mouseenter',()=>hl=li.dataset.c);li.addEventListener('mouseleave',()=>hl=null)});
-  let a=0,last=performance.now(),vis=true;
-  new IntersectionObserver(es=>vis=es[0].isIntersecting).observe(cv);
-  function draw(now){
-    const dt=(now-last)/1000;last=now;if(!RM)a=(a+dt*.9)%(Math.PI*2);
-    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,S,S);
-    const c=S/2,r=S/2-24,k=r/RANGE;
-    // Ringe
-    ctx.strokeStyle='rgba(190,210,230,.16)';ctx.lineWidth=1;
-    for(let i=1;i<=3;i++){ctx.beginPath();ctx.arc(c,c,r*i/3,0,7);ctx.stroke()}
-    ctx.beginPath();ctx.moveTo(c-r,c);ctx.lineTo(c+r,c);ctx.moveTo(c,c-r);ctx.lineTo(c,c+r);ctx.stroke();
-    ctx.fillStyle=col.mute;ctx.font='10px "JetBrains Mono",monospace';ctx.textAlign='left';
-    for(let i=1;i<=3;i++)ctx.fillText(i*10+' km',c+4,c-r*i/3+12);
-    ctx.textAlign='center';ctx.fillText('N',c,14);
-    // Sweep
-    const g=ctx.createConicGradient?ctx.createConicGradient(a-Math.PI/2.2,c,c):null;
-    if(g){g.addColorStop(0,'rgba(255,125,0,0)');g.addColorStop(.12,'rgba(255,125,0,.28)');g.addColorStop(.121,'rgba(255,125,0,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(c,c,r,0,7);ctx.fill()}
-    ctx.strokeStyle='rgba(255,194,26,.8)';ctx.beginPath();ctx.moveTo(c,c);ctx.lineTo(c+Math.cos(a-Math.PI/2.2+.75)*r,c+Math.sin(a-Math.PI/2.2+.75)*r);ctx.stroke();
-    // Städte
-    ctx.textAlign='left';ctx.font='600 11px "JetBrains Mono",monospace';
-    C.forEach(([n,la,lo,al,oy])=>{const [x,y]=km(la,lo);const px=c+x*k,py=c+y*k;const ang=Math.atan2(py-c,px-c);let d=((a-Math.PI/2.2+.75)-ang)%(Math.PI*2);if(d<0)d+=Math.PI*2;const glow=Math.max(0,1-d/2.2);const on=hl===n;
-      ctx.fillStyle=on?col.hot:`rgba(255,${150+glow*90|0},${40+glow*150|0},${.45+glow*.55})`;ctx.beginPath();ctx.arc(px,py,on?6:3.5+glow*2,0,7);ctx.fill();
-      if(on){ctx.strokeStyle=col.hot;ctx.beginPath();ctx.moveTo(c,c);ctx.lineTo(px,py);ctx.stroke()}
-      ctx.fillStyle=on?col.hot:`rgba(238,241,244,${.55+glow*.45})`;ctx.textAlign=al==='r'?'right':'left';ctx.fillText(n.toUpperCase(),al==='r'?px-9:px+9,py+4+oy)});
-    ctx.textAlign='center';
-    // Basis
-    const pulse=RM?0:(now/1400)%1;
-    ctx.strokeStyle=`rgba(255,194,26,${1-pulse})`;ctx.lineWidth=2;ctx.beginPath();ctx.arc(c,c,8+pulse*38,0,7);ctx.stroke();
-    ctx.fillStyle=col.hot;ctx.beginPath();ctx.arc(c,c,7,0,7);ctx.fill();
-    ctx.fillStyle=col.fg;ctx.font='700 12px "JetBrains Mono",monospace';ctx.fillText('HOCKENHEIM · BASIS',c,c+38);
-  }
-  function loop(now){if(vis||hl)draw(now);requestAnimationFrame(loop)}
-  draw(performance.now());requestAnimationFrame(loop);
-}
-
-/* ---------- Navigation ---------- */
-function nav(){
-  const n=$('#nav'),b=$('#burger'),m=$('#menu');
-  const on=()=>n.classList.toggle('solid',scrollY>40);on();addEventListener('scroll',on,{passive:true});
-  b.addEventListener('click',()=>{const o=m.classList.toggle('open');b.setAttribute('aria-expanded',o)});
-  $$('#menu a').forEach(a=>a.addEventListener('click',()=>{m.classList.remove('open');b.setAttribute('aria-expanded',false)}));
-}
-
-/* ---------- Cursor ---------- */
-function cursor(){
-  if(RM||!matchMedia('(pointer:fine)').matches)return;
-  const c=$('.cursor');let x=innerWidth/2,y=innerHeight/2,cx=x,cy=y;
-  addEventListener('pointermove',e=>{x=e.clientX;y=e.clientY});
-  $$('a,button,.svc,input,select,textarea,summary,.compare').forEach(el=>{el.addEventListener('mouseenter',()=>c.classList.add('big'));el.addEventListener('mouseleave',()=>c.classList.remove('big'))});
-  (function f(){cx+=(x-cx)*.22;cy+=(y-cy)*.22;c.style.transform=`translate(${cx}px,${cy}px)`;requestAnimationFrame(f)})();
-}
-
-/* ---------- Formular ---------- */
-function form(){
-  const f=$('#form'),msg=$('#form-msg');
-  f.addEventListener('submit',e=>{
-    e.preventDefault();
-    const name=$('#f-name').value.trim(),con=$('#f-contact').value.trim();
-    if(!name||!con){msg.hidden=false;msg.textContent='Bitte Name und E-Mail oder Telefonnummer angeben, damit wir Sie erreichen können.';(name?$('#f-contact'):$('#f-name')).focus();return}
-    const ls=$$('input[name=leistung]:checked').map(i=>i.value).join(', ')||'–';
-    const body=`Name: ${name}\nKontakt: ${con}\nObjekt: ${$('#f-obj').value}\nOrt: ${$('#f-ort').value||'–'}\nLeistung: ${ls}\n\n${$('#f-msg').value}`;
-    const mail=$('#c-mail').textContent.trim();
-    location.href=`mailto:${mail}?subject=${encodeURIComponent('Anfrage Drohnenflug – '+$('#f-obj').value)}&body=${encodeURIComponent(body)}`;
-    msg.hidden=false;msg.textContent=`Ihr E-Mail-Programm öffnet sich mit der fertigen Anfrage. Falls nicht, schreiben Sie uns direkt an ${mail}.`;
-  });
-}
-
-/* ---------- Animationen ---------- */
-function motion(){
-  const pre=$('#pre');
-  const finish=()=>{pre.classList.add('done');intro()};
-  if(RM||!window.gsap){pre.remove();document.querySelectorAll('.statement h2').forEach(h=>h.classList.add('struck'));return}
-  const rows=$$('#pre .row'),bar=$('#pre .bar i');
-  rows.forEach((r,i)=>setTimeout(()=>{r.classList.add('on');bar.style.width=((i+1)/rows.length*100)+'%'},120+i*170));
-  setTimeout(finish,120+rows.length*170+250);
-
-  gsap.registerPlugin(ScrollTrigger);
-  function intro(){
-    gsap.from('.hero h1 .ln>span',{yPercent:110,duration:1.1,ease:'expo.out',stagger:.09});
-    gsap.from('.hero .eyebrow,.hero-sub p,.hero-cta .btn',{y:24,opacity:0,duration:.9,ease:'power3.out',stagger:.08,delay:.35});
-    gsap.from('.hud .c',{scale:2.4,opacity:0,duration:.9,ease:'expo.out',stagger:.05,delay:.2});
-  }
-  // Durchstreichen
-  ScrollTrigger.create({trigger:'#strikeh',start:'top 70%',onEnter:()=>{const s=$$('#strikeh .strike');s.forEach((el,i)=>setTimeout(()=>el.style.setProperty('--s',1),i*260))}});
-  // Reveals
-  $$('.reveal').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
-  $$('section h2').forEach(h=>{if(h.closest('.hero'))return;gsap.from(h,{y:70,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 88%',once:true}})});
-  // Flugbahn im Ablauf
-  const p=$('#fp'),dot=$('#dronedot');
-  if(p&&getComputedStyle($('.steps svg.path')).display!=='none'){
-    const L=p.getTotalLength();
-    gsap.fromTo(p,{strokeDashoffset:L,strokeDasharray:`${L} ${L}`},{strokeDashoffset:0,ease:'none',scrollTrigger:{trigger:'#steps',start:'top 80%',end:'bottom 60%',scrub:.6,onUpdate:s=>{const pt=p.getPointAtLength(L*s.progress);dot.setAttribute('cx',pt.x);dot.setAttribute('cy',pt.y)}}});
-  }
-  // Parallax auf die große CTA-Zeile
-  gsap.from('.cta .big',{xPercent:-8,ease:'none',scrollTrigger:{trigger:'.cta',start:'top bottom',end:'top 20%',scrub:true}});
-}
-
-nav();hero();roofCompare();radar();form();cursor();motion();
-})();
-</script>
+<script src="/assets/js/gsap.min.js" defer></script>
+<script src="/assets/js/ScrollTrigger.min.js" defer></script>
+<script src="/assets/js/main.js" defer></script>
 </body>
 </html>
