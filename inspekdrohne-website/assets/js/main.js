@@ -290,7 +290,7 @@ function motion(){
   }else{if(pre)pre.remove();intro()}
   ScrollTrigger.create({trigger:'#strikeh',start:'top 70%',onEnter:()=>{$$('#strikeh .strike').forEach((el,i)=>setTimeout(()=>el.style.setProperty('--s',1),i*260))}});
   $$('.reveal').forEach(el=>gsap.from(el,{y:50,opacity:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 90%',once:true}}));
-  $$('section h2').forEach(h=>{if(h.closest('.hero'))return;gsap.from(h,{y:70,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 88%',once:true}})});
+  $$('section h2').forEach(h=>{if(h.closest('.hero,.consent'))return;gsap.from(h,{y:70,opacity:0,duration:1.1,ease:'expo.out',scrollTrigger:{trigger:h,start:'top 88%',once:true}})});
   const p=$('#fp'),dot=$('#dronedot');
   if(p&&getComputedStyle($('.steps svg.path')).display!=='none'){
     const L=p.getTotalLength();
@@ -299,8 +299,50 @@ function motion(){
   gsap.from('.cta .big',{xPercent:-8,ease:'none',scrollTrigger:{trigger:'.cta',start:'top bottom',end:'top 20%',scrub:true}});
 }
 
+/* ---------- Cookie-Banner / Einwilligung ----------
+   Speichert nur die eigene Entscheidung (localStorage, technisch notwendig nach § 25 Abs. 2 TDDDG).
+   Optionale Dienste werden erst nach Zustimmung geladen. Neuen Dienst eintragen:
+   SERVICES.statistik.load = () => { ...Skript laden... }   und in der Datenschutzerklärung nennen. */
+const CONSENT_KEY='inspek-consent',CONSENT_VERSION=1;
+const SERVICES={
+  statistik:{label:'Statistik',desc:'Hilft uns zu verstehen, wie die Website genutzt wird, damit wir sie verbessern können. Aktuell ist kein Statistikdienst aktiv.',load:null}
+};
+function consent(){
+  const read=()=>{try{const v=JSON.parse(localStorage.getItem(CONSENT_KEY));return v&&v.v===CONSENT_VERSION?v:null}catch(e){return null}};
+  const apply=c=>{Object.keys(SERVICES).forEach(k=>{const sv=SERVICES[k];if(c&&c[k]&&sv.load&&!sv.loaded){sv.loaded=true;try{sv.load()}catch(e){}}})};
+  const save=c=>{c.v=CONSENT_VERSION;c.date=new Date().toISOString();try{localStorage.setItem(CONSENT_KEY,JSON.stringify(c))}catch(e){}apply(c)};
+  const el=document.createElement('section');el.className='consent';el.id='consent';el.hidden=true;
+  el.setAttribute('role','dialog');el.setAttribute('aria-labelledby','consent-title');el.setAttribute('aria-describedby','consent-text');
+  el.innerHTML=`<div class="consent-in">
+    <div class="consent-copy"><h2 id="consent-title">Datenschutz-Einstellungen</h2>
+    <p id="consent-text">Wir verwenden nur technisch notwendige Speicherungen. Optionale Dienste wie Statistik laden wir erst, wenn Sie zustimmen. Ihre Wahl können Sie jederzeit unter „Cookie-Einstellungen“ im Seitenfuß ändern. Mehr in der <a href="/datenschutz">Datenschutzerklärung</a>.</p></div>
+    <div class="consent-opts" id="consent-opts" hidden>
+      <label class="opt"><input type="checkbox" checked disabled> <span><strong>Notwendig</strong> · immer aktiv<br><small>Speichert Ihre Auswahl in diesem Banner. Keine Weitergabe an Dritte.</small></span></label>
+      ${Object.entries(SERVICES).map(([k,sv])=>`<label class="opt"><input type="checkbox" id="consent-${k}" data-k="${k}"> <span><strong>${sv.label}</strong><br><small>${sv.desc}</small></span></label>`).join('')}
+    </div>
+    <div class="consent-btns">
+      <button type="button" class="cbtn" data-a="deny">Nur notwendige</button>
+      <button type="button" class="cbtn" data-a="settings" aria-expanded="false" aria-controls="consent-opts">Einstellungen</button>
+      <button type="button" class="cbtn" data-a="save" hidden>Auswahl speichern</button>
+      <button type="button" class="cbtn" data-a="all">Alle akzeptieren</button>
+    </div></div>`;
+  document.body.appendChild(el);
+  const opts=el.querySelector('#consent-opts'),bSet=el.querySelector('[data-a=settings]'),bSave=el.querySelector('[data-a=save]');
+  const open=(withOpts)=>{const c=read()||{};Object.keys(SERVICES).forEach(k=>{el.querySelector('#consent-'+k).checked=!!c[k]});
+    opts.hidden=!withOpts;bSave.hidden=!withOpts;bSet.hidden=!!withOpts;bSet.setAttribute('aria-expanded',String(!!withOpts));
+    el.hidden=false;document.body.classList.add('consent-open');requestAnimationFrame(()=>el.classList.add('on'))};
+  const close=()=>{el.classList.remove('on');document.body.classList.remove('consent-open');setTimeout(()=>{el.hidden=true},250)};
+  el.addEventListener('click',e=>{const a=e.target.closest('[data-a]');if(!a)return;const act=a.dataset.a;const c={};
+    if(act==='settings'){open(true);el.querySelector('#consent-opts input:not([disabled])')?.focus();return}
+    Object.keys(SERVICES).forEach(k=>{c[k]=act==='all'?true:act==='deny'?false:el.querySelector('#consent-'+k).checked});
+    save(c);close();if(opener){opener.focus();opener=null}});
+  let opener=null;
+  $$('.consent-link').forEach(b=>b.addEventListener('click',()=>{opener=b;open(true);el.querySelector('.cbtn')?.focus()}));
+  const c=read();if(c)apply(c);else open(false);
+}
+
 /* ---------- Danke-Seite: Hinweis bei Versand über Mailprogramm ---------- */
 function thanks(){const el=$('#via-mail');if(el&&/via=mail/.test(location.search))el.hidden=false}
 
-nav();if($('#thermal'))hero();if($('#compare'))roofCompare();radar();form();cursor();motion();thanks();
+nav();consent();if($('#thermal'))hero();if($('#compare'))roofCompare();radar();form();cursor();motion();thanks();
 })();

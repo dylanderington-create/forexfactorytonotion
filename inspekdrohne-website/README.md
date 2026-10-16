@@ -21,7 +21,8 @@ Statische Website, keine Datenbank und kein Build-Schritt. Auf Vercel als Projek
 
 **Erledigt**
 - Impressum (§ 5 DDG), Datenschutzerklärung (Hosting, Logfiles, Kontakt, Drohnenflüge, Rechte), AGB-Entwurf mit Widerrufsbelehrung
-- Keine Cookies, kein Tracking, keine externen Verbindungen. Schriften und Skripte liegen lokal, deshalb ist aktuell kein Cookie-Banner nötig.
+- Keine Cookies, kein Tracking, keine externen Verbindungen. Schriften und Skripte liegen lokal.
+- Cookie-Banner („Nur notwendige“ / „Einstellungen“ / „Alle akzeptieren“, gleichwertige Buttons), jederzeit änderbar über „Cookie-Einstellungen“ im Footer. Optionale Dienste laden erst nach Zustimmung.
 - Barrierefreiheit: Kontraste geprüft, Tastaturbedienung, Fokus-Rahmen, Skip-Link, Formular-Labels und Fehlermeldungen. Automatischer axe-Test (WCAG 2.1 AA) ohne Befund auf allen Seiten.
 - Echte Kontaktdaten und Adresse
 - Title und Description pro Seite, Open-Graph-/Twitter-Bild, Favicons, robots.txt, sitemap.xml, Canonical-Tags, genau eine H1 pro Seite, strukturierte Daten (LocalBusiness, WebSite, FAQPage), `lang="de"`
@@ -33,7 +34,7 @@ Statische Website, keine Datenbank und kein Build-Schritt. Auf Vercel als Projek
 1. **Formular-Versand:** In `assets/js/main.js` oben bei `FORM_ENDPOINT` und `FORM_KEY` eintragen (z. B. Web3Forms: `https://api.web3forms.com/submit` + Access-Key). Dann:
    - in `vercel.json` bei `connect-src` die Adresse ergänzen (z. B. `https://api.web3forms.com`)
    - in `datenschutz.html` Abschnitt 4 um den Dienst ergänzen
-2. **Analytics:** Erst mit Einwilligungs-Banner einbauen und dann in der Datenschutzerklärung nennen.
+2. **Analytics:** In `assets/js/main.js` bei `SERVICES.statistik.load` das Lade-Skript eintragen (lädt nur nach Zustimmung), Text `desc` anpassen, Dienst in `vercel.json` (CSP) freigeben und in der Datenschutzerklärung (Abschnitt 6) nennen.
 3. **Google Search Console** und **Google Business Profile** einrichten, Sitemap `https://inspekdrohne.de/sitemap.xml` einreichen.
 4. **AGB** vor Veröffentlichung einmal anwaltlich prüfen lassen.
 5. Social Proof (Referenzen, Kundenstimmen) und Social-Media-Links, sobald vorhanden.

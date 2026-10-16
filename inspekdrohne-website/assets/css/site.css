@@ -369,3 +369,22 @@ footer small{color:var(--mute);font-size:13px}
 .center-page p{max-width:56ch;color:#cfd6dc;font-size:19px}
 .center-page .actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px}
 .bignum{font-family:var(--f-display);font-weight:900;font-size:clamp(120px,26vw,340px);line-height:.8;display:block}
+
+/* ---------- Cookie-Banner ---------- */
+.consent{position:fixed;left:0;right:0;bottom:0;z-index:95;padding:0 var(--gutter) calc(16px + env(safe-area-inset-bottom,0px));transform:translateY(110%);transition:transform .35s cubic-bezier(.7,0,.2,1)}
+.consent.on{transform:none}
+.consent-in{max-width:1100px;margin-inline:auto;background:var(--ink-2);border:1px solid var(--line);border-top:3px solid var(--hot);box-shadow:0 -10px 40px rgba(0,0,0,.5);padding:22px clamp(18px,3vw,30px);display:grid;gap:16px}
+.consent h2{font-size:28px;line-height:1;margin:0 0 8px}
+.consent p{margin:0;color:#cfd6dc;font-size:15px;max-width:80ch}
+.consent a{color:var(--hot)}
+.consent [hidden]{display:none!important}
+.consent-opts{display:grid;gap:10px;border-top:1px solid var(--line);padding-top:14px}
+.consent .opt{display:flex;gap:12px;align-items:flex-start;font-family:var(--f-body);font-size:15px;letter-spacing:0;text-transform:none;color:var(--fg)}
+.consent .opt input{width:20px;height:20px;flex:none;margin:2px 0 0;padding:0;accent-color:var(--hot)}
+.consent .opt small{color:var(--mute);font-size:13px}
+.consent-btns{display:flex;flex-wrap:wrap;gap:10px}
+.cbtn{flex:1 1 180px;min-height:48px;padding:0 18px;font:inherit;font-weight:800;font-stretch:125%;font-size:13px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:transparent;color:var(--fg);border:1.5px solid var(--fg);transition:background .2s,color .2s}
+.cbtn:hover{background:var(--fg);color:var(--ink)}
+.cbtn[data-a=all],.cbtn[data-a=deny]{background:var(--hot);border-color:var(--hot);color:var(--ink)}
+.cbtn[data-a=all]:hover,.cbtn[data-a=deny]:hover{background:var(--white-hot);border-color:var(--white-hot)}
+body.consent-open .mobile-cta{transform:translateY(110%)!important}

@@ -69,7 +69,7 @@ FOOT = """
     </div>
     <div class="legal">
       <small>© 2026 Inspekdrohne · Drohnenservice im Rhein-Neckar-Kreis</small>
-      <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/agb">AGB</a></nav>
+      <nav aria-label="Rechtliches"><a href="/impressum">Impressum</a><a href="/datenschutz">Datenschutz</a><a href="/agb">AGB</a><button type="button" class="consent-link">Cookie-Einstellungen</button></nav>
     </div>
   </div>
 </footer>
@@ -124,7 +124,7 @@ DATENSCHUTZ = f"""
 
 <h2>2. Das Wichtigste in Kürze</h2>
 <ul>
-  <li>Diese Website setzt <strong>keine Cookies</strong> und verwendet <strong>keine Analyse- oder Tracking-Dienste</strong>.</li>
+  <li>Diese Website setzt <strong>keine Cookies</strong> und verwendet derzeit <strong>keine Analyse- oder Tracking-Dienste</strong>. Optionale Dienste würden erst nach Ihrer Zustimmung im Cookie-Banner geladen.</li>
   <li>Schriften, Grafiken und Skripte liegen auf unserem eigenen Server. Beim Aufruf werden <strong>keine Daten an Google oder andere Drittanbieter</strong> übertragen.</li>
   <li>Personenbezogene Daten verarbeiten wir nur, wenn Sie uns kontaktieren oder einen Auftrag erteilen.</li>
 </ul>
@@ -149,8 +149,9 @@ DATENSCHUTZ = f"""
 <h2>5. Durchführung von Drohnenflügen</h2>
 <p>Bei Aufträgen erstellen wir Foto-, Video-, Wärmebild- und Vermessungsaufnahmen des vereinbarten Objekts. Dabei achten wir darauf, keine unbeteiligten Personen, Nachbargrundstücke oder Kfz-Kennzeichen erkennbar aufzunehmen. Lässt sich dies im Einzelfall nicht vermeiden, werden solche Inhalte vor der Weitergabe unkenntlich gemacht oder gelöscht. Rechtsgrundlage ist die Vertragserfüllung (Art. 6 Abs. 1 lit. b DSGVO) sowie unser berechtigtes Interesse an einer ordnungsgemäßen Auftragsdurchführung (Art. 6 Abs. 1 lit. f DSGVO). Rohdaten bewahren wir in der Regel drei Monate nach Abschluss des Auftrags auf und löschen sie anschließend, sofern nichts anderes vereinbart ist.</p>
 
-<h2>6. Speicherung im Browser</h2>
-<p>Diese Website speichert keine Informationen auf Ihrem Endgerät und liest keine aus (keine Cookies, kein Local Storage). Eine Einwilligung nach § 25 TDDDG ist daher nicht erforderlich.</p>
+<h2>6. Cookie-Banner und Speicherung im Browser</h2>
+<p>Diese Website setzt keine Cookies. Um Ihre Auswahl im Cookie-Banner zu speichern, legen wir im lokalen Speicher Ihres Browsers (Local Storage) den Eintrag „inspek-consent“ ab. Er enthält nur Ihre Entscheidung und das Datum, wird nicht an uns oder Dritte übertragen und bleibt gespeichert, bis Sie ihn in Ihrem Browser löschen. Diese Speicherung ist technisch erforderlich, damit der Banner Ihre Wahl respektiert (§ 25 Abs. 2 Nr. 2 TDDDG); Rechtsgrundlage ist Art. 6 Abs. 1 lit. c DSGVO in Verbindung mit Art. 7 Abs. 1 DSGVO.</p>
+<p>Optionale Dienste wie Statistik werden ausschließlich nach Ihrer Einwilligung geladen (§ 25 Abs. 1 TDDDG, Art. 6 Abs. 1 lit. a DSGVO). Derzeit setzen wir keine solchen Dienste ein. Sie können Ihre Auswahl jederzeit über den Link „Cookie-Einstellungen“ im Seitenfuß ändern oder widerrufen.</p>
 
 <h2>7. SSL/TLS-Verschlüsselung</h2>
 <p>Diese Website nutzt aus Sicherheitsgründen eine SSL/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie an „https://“ in der Adresszeile Ihres Browsers.</p>
