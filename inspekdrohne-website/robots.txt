@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /danke
 
-Sitemap: https://inspekdrohne.de/sitemap.xml
+Sitemap: https://www.inspekdrohne.de/sitemap.xml

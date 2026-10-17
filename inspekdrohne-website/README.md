@@ -26,7 +26,7 @@ Statische Website, keine Datenbank und kein Build-Schritt. Auf Vercel als Projek
 - Barrierefreiheit: Kontraste geprüft, Tastaturbedienung, Fokus-Rahmen, Skip-Link, Formular-Labels und Fehlermeldungen. Automatischer axe-Test (WCAG 2.1 AA) ohne Befund auf allen Seiten.
 - Echte Kontaktdaten und Adresse
 - Title und Description pro Seite, Open-Graph-/Twitter-Bild, Favicons, robots.txt, sitemap.xml, Canonical-Tags, genau eine H1 pro Seite, strukturierte Daten (LocalBusiness, WebSite, FAQPage), `lang="de"`
-- 301-Weiterleitungen der alten Adressen (`/uber-uns/`, `/datenschutzrichtlinien/`, `/kontakt` …) und von www auf die Domain ohne www
+- 301-Weiterleitungen der alten Adressen (`/uber-uns/`, `/datenschutzrichtlinien/`, `/kontakt` …) . Die Hauptadresse ist www.inspekdrohne.de (Umleitung von inspekdrohne.de ohne www stellt Vercel unter Settings → Domains ein)
 - CTA im sichtbaren Bereich, Mobile-Layouts, Kontakt-Leiste unten auf dem Handy, eigene 404-Seite, Formular-Fallback ohne JavaScript
 - Sicherheits-Header (HSTS, CSP, X-Frame-Options …), Spamschutz im Formular (verstecktes Feld + Mindest-Ausfüllzeit), Danke-Seite
 

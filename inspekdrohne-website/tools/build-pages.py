@@ -5,7 +5,7 @@ Texte ändern: unten in PAGES bearbeiten und Skript erneut ausführen."""
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-SITE = "https://inspekdrohne.de"
+SITE = "https://www.inspekdrohne.de"
 STAND = "Oktober 2026"
 
 ADDR = "Sezer Özgüden<br>Inspekdrohne – Luftbildaufnahmen<br>Am Sandbuckel 6<br>68809 Neulußheim"
