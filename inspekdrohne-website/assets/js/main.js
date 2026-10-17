@@ -99,65 +99,11 @@ function hero(){
 
 /* ---------- Vergleich: Dach bei Tageslicht vs. Wärmebild ---------- */
 function roofCompare(){
-  const W=600,H=350;
-  // Geometrie (in 600x350)
-  const house={x:120,y:70,w:340,h:210}; // Grundriss von oben
-  const ridge=house.y+house.h*.46;
-  const sky1={x:212,y:92,w:30,h:24}, sky2={x:340,y:92,w:30,h:24};
-  const chim={x:350,y:64,w:20,h:18};
-  const pv={x:300,y:190,cols:6,rows:3,cw:22,ch:15,gap:2};
-  const hot={c:4,r:2};
-  const gap={x:170,y:136,r:22};
-  // --- Tageslicht ---
-  const v=$('#c-vis'), vc=v.getContext('2d');v.width=W*2;v.height=H*2;vc.scale(2,2);
-  const R=rng(3);
-  vc.fillStyle='#4f6b3a';vc.fillRect(0,0,W,H);
-  for(let i=0;i<1400;i++){vc.fillStyle=`rgba(${60+R()*40|0},${90+R()*50|0},${40+R()*30|0},.5)`;vc.fillRect(R()*W,R()*H,2,2)}
-  vc.fillStyle='#b7ada0';vc.fillRect(260,280,70,70); // Weg
-  vc.fillStyle='#8f8a82';vc.fillRect(0,300,W,50); // Straße
-  vc.fillStyle='#6f6a63';for(let x=0;x<W;x+=40)vc.fillRect(x,323,22,3);
-  // Baum
-  for(let i=0;i<9;i++){vc.fillStyle=`rgba(${34+R()*20|0},${70+R()*30|0},${30+R()*15|0},.85)`;vc.beginPath();vc.arc(530+(R()-.5)*50,120+(R()-.5)*50,20+R()*16,0,7);vc.fill()}
-  // Schatten
-  vc.fillStyle='rgba(0,0,0,.28)';vc.fillRect(house.x+10,house.y+10,house.w,house.h);
-  // Dachflächen
-  const tile=(y0,y1,base)=>{vc.fillStyle=base;vc.fillRect(house.x,y0,house.w,y1-y0);for(let y=y0;y<y1;y+=7){vc.fillStyle='rgba(0,0,0,.22)';vc.fillRect(house.x,y,house.w,1.3);for(let x=house.x+((y/7|0)%2)*6;x<house.x+house.w;x+=12){vc.fillStyle='rgba(0,0,0,.14)';vc.fillRect(x,y,1,7)}}};
-  tile(house.y,ridge,'#8e3b2a');tile(ridge,house.y+house.h,'#7a3123');
-  vc.fillStyle='#5a2419';vc.fillRect(house.x,ridge-3,house.w,6); // First
-  vc.fillStyle='#9aa0a6';vc.fillRect(house.x-4,house.y-4,house.w+8,4);vc.fillRect(house.x-4,house.y+house.h,house.w+8,4); // Rinnen
-  const skyl=s=>{vc.fillStyle='#39414a';vc.fillRect(s.x,s.y,s.w,s.h);vc.fillStyle='rgba(160,190,220,.55)';vc.fillRect(s.x+3,s.y+3,s.w-6,s.h-6);vc.fillStyle='rgba(255,255,255,.35)';vc.fillRect(s.x+4,s.y+4,6,s.h-8)};
-  skyl(sky1);skyl(sky2);
-  vc.fillStyle='#5b5752';vc.fillRect(chim.x,chim.y,chim.w,chim.h);vc.fillStyle='#2b2926';vc.fillRect(chim.x+4,chim.y+4,chim.w-8,chim.h-8);
-  for(let r=0;r<pv.rows;r++)for(let c=0;c<pv.cols;c++){const x=pv.x+c*(pv.cw+pv.gap),y=pv.y+r*(pv.ch+pv.gap);vc.fillStyle='#1b2536';vc.fillRect(x,y,pv.cw,pv.ch);vc.strokeStyle='rgba(140,170,210,.35)';vc.lineWidth=.6;for(let k=1;k<4;k++){vc.beginPath();vc.moveTo(x+k*pv.cw/4,y);vc.lineTo(x+k*pv.cw/4,y+pv.ch);vc.stroke()}vc.fillStyle='rgba(255,255,255,.07)';vc.fillRect(x,y,pv.cw,3)}
-  // --- Wärmebild ---
-  const G=Field(W,H,7);const R2=rng(11);G.noise(R2,1);
-  for(let i=0;i<60;i++)G.spot(R2()*W,R2()*H,10+R2()*20,-1.2+R2()*1.6);
-  G.rect(0,300,W,50,9.5);G.rect(260,280,70,20,10.5);
-  G.spot(530,120,40,-2.5);
-  G.rect(house.x-4,house.y-4,house.w+8,house.h+8,14); // warme Wand/Traufe
-  G.rect(house.x,house.y,house.w,ridge-house.y,3.2);G.rect(house.x,ridge,house.w,house.y+house.h-ridge,4.1);
-  G.rect(house.x,ridge-3,house.w,6,9.5);
-  G.spot(house.x+house.w*.8,ridge,10,3);
-  // Wärmebrücke Dachfenster 1 stark, 2 schwach
-  G.rect(sky1.x,sky1.y,sky1.w,sky1.h,15);G.spot(sky1.x+sky1.w/2,sky1.y+sky1.h/2,20,8);
-  G.rect(sky2.x,sky2.y,sky2.w,sky2.h,12);G.spot(sky2.x+sky2.w/2,sky2.y+sky2.h/2,10,2);
-  // Dämmungs-Fehlstelle
-  G.spot(gap.x,gap.y,gap.r,9);G.spot(gap.x+8,gap.y-4,gap.r*.5,3);
-  // Kamin
-  G.rect(chim.x,chim.y,chim.w,chim.h,34);G.rect(chim.x+4,chim.y+4,chim.w-8,chim.h-8,52);G.spot(chim.x+chim.w/2,chim.y+chim.h,14,12);
-  // PV (Winter: Module etwas wärmer durch Sonne)
-  for(let r=0;r<pv.rows;r++)for(let c=0;c<pv.cols;c++){const x=pv.x+c*(pv.cw+pv.gap),y=pv.y+r*(pv.ch+pv.gap);G.rect(x,y,pv.cw,pv.ch,19+R2()*2.5)}
-  {const x=pv.x+hot.c*(pv.cw+pv.gap),y=pv.y+hot.r*(pv.ch+pv.gap);G.rect(x,y,pv.cw,pv.ch,27);G.rect(x+pv.cw*.55|0,y+4,6,6,74);G.spot(x+pv.cw*.55+3,y+7,4,12)}
-  const irRaw=G.toCanvas(0,34);
-  const ir=$('#c-ir'),ic=ir.getContext('2d');ir.width=W*2;ir.height=H*2;ic.filter='blur(2.2px)';ic.drawImage(irRaw,0,0,W*2,H*2);ic.filter='none';
-  // Scanlinien fürs IR-Gefühl
-  ic.fillStyle='rgba(0,0,0,.08)';for(let y=0;y<H*2;y+=3)ic.fillRect(0,y,W*2,1);
-  // Regler
   const box=$('#compare'),rng_=$('#cmp-range');
-  const set=v=>box.style.setProperty('--pos',v+'%');
+  const set=v=>{box.style.setProperty('--pos',v+'%');rng_.setAttribute('aria-valuetext',`${100-Math.round(v)} Prozent Wärmebild`)};
   rng_.addEventListener('input',e=>set(e.target.value));
   // Intro-Wisch, wenn sichtbar
-  if(!RM&&window.gsap){const o={v:88};gsap.to(o,{v:24,duration:1.8,ease:'power3.inOut',scrollTrigger:{trigger:box,start:'top 75%'},onUpdate:()=>{set(o.v);rng_.value=o.v}});set(88);rng_.value=88}
+  if(!RM&&window.gsap){const o={v:88};set(88);rng_.value=88;gsap.to(o,{v:24,duration:1.8,ease:'power3.inOut',scrollTrigger:{trigger:box,start:'top 75%'},onUpdate:()=>{set(o.v);rng_.value=o.v}})}
 }
 
 /* ---------- Radar Einsatzgebiet ---------- */
@@ -261,10 +207,10 @@ function form(){
       msg.hidden=false;msg.textContent='Anfrage wird gesendet …';
       try{const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:FORM_KEY,subject:'Anfrage Drohnenflug – '+data.objekt,from_name:'inspekdrohne.de',...data})});
         if(!r.ok)throw new Error(r.status);location.href='/danke';return}
-      catch(err){msg.textContent='Die Anfrage konnte gerade nicht gesendet werden. Bitte schreiben Sie uns an info@inspekdrohne.de oder rufen Sie an: 06205 3646528.';btn.disabled=false;btn.removeAttribute('aria-busy');return}
+      catch(err){msg.textContent='Die Anfrage konnte gerade nicht gesendet werden. Bitte schreiben Sie uns an info@swg-dachbau.de oder rufen Sie an: 06205 3646528.';btn.disabled=false;btn.removeAttribute('aria-busy');return}
     }
     const body=`Name: ${data.name}\nKontakt: ${data.kontakt}\nObjekt: ${data.objekt}\nOrt: ${data.ort}\nLeistung: ${data.leistung}\n\n${data.nachricht}`;
-    location.href=`mailto:info@inspekdrohne.de?subject=${encodeURIComponent('Anfrage Drohnenflug – '+data.objekt)}&body=${encodeURIComponent(body)}`;
+    location.href=`mailto:info@swg-dachbau.de?subject=${encodeURIComponent('Anfrage Drohnenflug – '+data.objekt)}&body=${encodeURIComponent(body)}`;
     setTimeout(()=>{location.href='/danke?via=mail'},900);
   });
 }

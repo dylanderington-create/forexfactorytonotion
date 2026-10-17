@@ -200,8 +200,8 @@ section{position:relative}
 .ir-legend li{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:start;font-size:15px;color:#c3cad1}
 .ir-legend b{font-family:var(--f-mono);font-size:11px;display:grid;place-items:center;height:26px;background:var(--hot);color:var(--ink)}
 .ir-legend strong{color:var(--fg);display:block}
-.compare{position:relative;aspect-ratio:12/7;max-width:100%;border:1px solid var(--line);overflow:hidden;user-select:none;touch-action:pan-y;background:#1a1d20;--pos:24%}
-.compare canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.compare{position:relative;aspect-ratio:16/9;max-width:100%;border:1px solid var(--line);overflow:hidden;user-select:none;touch-action:pan-y;background:#1a1d20;--pos:24%}
+.compare img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;max-width:none}
 .compare .irc{clip-path:inset(0 0 0 var(--pos))}
 .compare .marks{position:absolute;inset:0;clip-path:inset(0 0 0 var(--pos));pointer-events:none}
 .mk{position:absolute;transform:translate(-50%,-50%)}

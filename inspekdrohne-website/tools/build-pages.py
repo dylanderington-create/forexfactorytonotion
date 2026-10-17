@@ -11,7 +11,7 @@ STAND = "Oktober 2026"
 ADDR = "Sezer Özgüden<br>Inspekdrohne – Luftbildaufnahmen<br>Am Sandbuckel 6<br>68809 Neulußheim"
 CONTACT = ('Telefon: <a href="tel:+4962053646528">06205 3646528</a><br>'
            'Mobil: <a href="tel:+4917622678053">0176 22678053</a><br>'
-           'E-Mail: <a href="mailto:info@inspekdrohne.de">info@inspekdrohne.de</a>')
+           'E-Mail: <a href="mailto:info@swg-dachbau.de">info@swg-dachbau.de</a>')
 
 
 def head(title, desc, path, index=True):
@@ -65,7 +65,7 @@ FOOT = """
   <div class="wrap">
     <div class="cols">
       <a class="flogo" href="/" aria-label="Inspekdrohne – zur Startseite"><img src="/assets/img/logo.svg" alt="Inspekdrohne" width="125" height="64" loading="lazy"></a>
-      <address>Inspekdrohne · Sezer Özgüden<br>Am Sandbuckel 6, 68809 Neulußheim<br><a href="tel:+4962053646528">06205 3646528</a> · <a href="mailto:info@inspekdrohne.de">info@inspekdrohne.de</a></address>
+      <address>Inspekdrohne · Sezer Özgüden<br>Am Sandbuckel 6, 68809 Neulußheim<br><a href="tel:+4962053646528">06205 3646528</a> · <a href="mailto:info@swg-dachbau.de">info@swg-dachbau.de</a></address>
     </div>
     <div class="legal">
       <small>© 2026 Inspekdrohne · Drohnenservice im Rhein-Neckar-Kreis</small>
@@ -167,7 +167,7 @@ DATENSCHUTZ = f"""
   <li>Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft (Art. 7 Abs. 3 DSGVO)</li>
 </ul>
 <p><strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Soweit wir Daten auf Grundlage berechtigter Interessen verarbeiten, können Sie dieser Verarbeitung aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit widersprechen.</p>
-<p>Für alle Anliegen genügt eine formlose Nachricht an <a href="mailto:info@inspekdrohne.de">info@inspekdrohne.de</a>.</p>
+<p>Für alle Anliegen genügt eine formlose Nachricht an <a href="mailto:info@swg-dachbau.de">info@swg-dachbau.de</a>.</p>
 
 <h2>9. Beschwerderecht</h2>
 <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren. Für uns zuständig ist: Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart, <a href="https://www.baden-wuerttemberg.datenschutz.de" rel="noopener">www.baden-wuerttemberg.datenschutz.de</a>.</p>
@@ -239,7 +239,7 @@ AGB = f"""
 <div class="notice">
 <h3>Widerrufsbelehrung</h3>
 <p><strong>Widerrufsrecht</strong><br>Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage ab dem Tag des Vertragsabschlusses.</p>
-<p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Inspekdrohne – Sezer Özgüden, Am Sandbuckel 6, 68809 Neulußheim, Telefon 06205 3646528, E-Mail info@inspekdrohne.de) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.</p>
+<p>Um Ihr Widerrufsrecht auszuüben, müssen Sie uns (Inspekdrohne – Sezer Özgüden, Am Sandbuckel 6, 68809 Neulußheim, Telefon 06205 3646528, E-Mail info@swg-dachbau.de) mittels einer eindeutigen Erklärung (z. B. ein mit der Post versandter Brief oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Sie können dafür das beigefügte Muster-Widerrufsformular verwenden, das jedoch nicht vorgeschrieben ist.</p>
 <p>Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.</p>
 <p><strong>Folgen des Widerrufs</strong><br>Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über Ihren Widerruf dieses Vertrags bei uns eingegangen ist. Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der ursprünglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdrücklich etwas anderes vereinbart; in keinem Fall werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.</p>
 <p>Haben Sie verlangt, dass die Dienstleistungen während der Widerrufsfrist beginnen sollen, so haben Sie uns einen angemessenen Betrag zu zahlen, der dem Anteil der bis zu dem Zeitpunkt, zu dem Sie uns von der Ausübung des Widerrufsrechts hinsichtlich dieses Vertrags unterrichten, bereits erbrachten Dienstleistungen im Vergleich zum Gesamtumfang der im Vertrag vorgesehenen Dienstleistungen entspricht.</p>
@@ -247,7 +247,7 @@ AGB = f"""
 </div>
 <h3>Muster-Widerrufsformular</h3>
 <p>(Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses Formular aus und senden Sie es zurück.)</p>
-<p>An Inspekdrohne – Sezer Özgüden, Am Sandbuckel 6, 68809 Neulußheim, E-Mail: info@inspekdrohne.de</p>
+<p>An Inspekdrohne – Sezer Özgüden, Am Sandbuckel 6, 68809 Neulußheim, E-Mail: info@swg-dachbau.de</p>
 <p>Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag über die Erbringung der folgenden Dienstleistung (*)<br>
 – Bestellt am (*) / erhalten am (*)<br>
 – Name des/der Verbraucher(s)<br>
@@ -266,7 +266,7 @@ DANKE = """<main id="main" class="page center-page">
   <div class="wrap">
     <p class="eyebrow">Anfrage</p>
     <h1>Danke. <span class="heat-text">Wir melden uns.</span></h1>
-    <p id="via-mail" class="notice" hidden><strong>Fast geschafft:</strong> Ihr E-Mail-Programm sollte sich mit der fertigen Anfrage geöffnet haben. Bitte klicken Sie dort noch auf „Senden“. Falls sich nichts geöffnet hat, schreiben Sie uns direkt an <a href="mailto:info@inspekdrohne.de" style="color:var(--hot)">info@inspekdrohne.de</a>.</p>
+    <p id="via-mail" class="notice" hidden><strong>Fast geschafft:</strong> Ihr E-Mail-Programm sollte sich mit der fertigen Anfrage geöffnet haben. Bitte klicken Sie dort noch auf „Senden“. Falls sich nichts geöffnet hat, schreiben Sie uns direkt an <a href="mailto:info@swg-dachbau.de" style="color:var(--hot)">info@swg-dachbau.de</a>.</p>
     <p>Wir sehen uns Ihre Anfrage an und melden uns zeitnah mit Rückfragen oder einem Angebot. Wenn es eilt, erreichen Sie uns telefonisch unter <a href="tel:+4962053646528" style="color:var(--hot)">06205 3646528</a>.</p>
     <div class="actions"><a class="btn" href="/">Zur Startseite <span class="arr">→</span></a><a class="btn ghost" href="/#waermebild">Wärmebild ansehen</a></div>
   </div>
