@@ -15,6 +15,8 @@ Statische Website, keine Datenbank und kein Build-Schritt. Auf Vercel als Projek
 | `robots.txt`, `sitemap.xml`, `site.webmanifest` | Suchmaschinen und App-Icons |
 | `tools/build-pages.py` | Erzeugt die Unterseiten neu, wenn Texte in Impressum/Datenschutz/AGB geändert werden |
 
+**Hinweis:** Die Slider-Fotos `assets/img/haus-tageslicht.webp` und `haus-waermebild.webp` (1600 × 900) sind in der ausgelieferten ZIP enthalten, aber nicht in diesem Repo.
+
 `tools/` und diese README werden über `.vercelignore` nicht veröffentlicht.
 
 ## Stand der Checkliste
