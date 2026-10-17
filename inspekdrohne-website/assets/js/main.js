@@ -290,5 +290,9 @@ function consent(){
 /* ---------- Danke-Seite: Hinweis bei Versand über Mailprogramm ---------- */
 function thanks(){const el=$('#via-mail');if(el&&/via=mail/.test(location.search))el.hidden=false}
 
-nav();consent();if($('#thermal'))hero();if($('#compare'))roofCompare();radar();form();cursor();motion();thanks();
+// Jeder Teil startet für sich: ein Fehler in einem Bereich blockiert nicht die ganze Seite
+const run=f=>{try{f()}catch(e){console.error(e)}};
+run(nav);run(consent);if($('#thermal'))run(hero);if($('#compare'))run(roofCompare);run(radar);run(form);run(cursor);
+try{motion()}catch(e){console.error(e);const p=$('#pre');if(p)p.remove()}
+run(thanks);
 })();

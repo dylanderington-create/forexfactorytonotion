@@ -38,7 +38,7 @@ def head(title, desc, path, index=True):
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preload" href="/assets/fonts/big-shoulders-display.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/site.css">
+<link rel="stylesheet" href="/assets/css/site.css?v=20261017b">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -73,7 +73,7 @@ FOOT = """
     </div>
   </div>
 </footer>
-<script src="/assets/js/main.js" defer></script>
+<script src="/assets/js/main.js?v=20261017b" defer></script>
 </body>
 </html>
 """
